@@ -6,8 +6,13 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 21:36:33 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/18 21:45:18 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/18 23:12:07 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "cub3d.h"
+
+int	invalid_args(void)
+{
+	return (1);
+}
