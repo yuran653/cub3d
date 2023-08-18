@@ -6,7 +6,7 @@
 #    By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 19:29:24 by jgoldste          #+#    #+#              #
-#    Updated: 2023/08/18 20:05:07 by jgoldste         ###   ########.fr        #
+#    Updated: 2023/08/18 22:26:35 by jgoldste         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,10 +31,16 @@ HEADERS_LIST	=	cub3d.h
 HEADERS			=	$(addprefix $(HEADERS_DIR), $(HEADERS_LIST))
 
 GNL_DIR			=	gnl/
+GNL_LIST		=	get_next_line.c	get_next_line_utils.c
+GNL				=	$(addprefix $(GNL_DIR), $(GNL_LIST))
+
+PARSER_DIR		=	parser/
+PARSER_LIST		=	check_args.c	error.c\
+PARSER			=	$(addprefix $(PARSER_DIR), $(PARSER_LIST))
 
 SOURCES_DIR		=	./src/
 SOURCES_LIST	=	cub3d.c\
-					$(GNL_DIR)get_next_line.c	$(GNL_DIR)get_next_line_utils.c
+					$(GNL)	$(PARSER)
 SOURCES			=	$(addprefix $(SOURCES_DIR), $(SOURCES_LIST))
 
 OBJECTS_DIR		=	./object/
@@ -58,6 +64,7 @@ $(NAME): $(LIBFT) $(MINILIBX) $(OBJECTS_DIR) $(OBJECTS)
 $(OBJECTS_DIR):
 	$(MKDIR) $(OBJECTS_DIR)
 	$(MKDIR) $(OBJECTS_DIR)$(GNL_DIR)
+	$(MKDIR) $(OBJECTS_DIR)$(PARSER_DIR)
 
 $(OBJECTS_DIR)%.o: $(SOURCES_DIR)%.c $(HEADERS)
 	$(CC) $(CFLAGS) $(INCLUDES) -g -c -o $@ $< -MD

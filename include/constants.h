@@ -1,27 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   constants.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/18 19:17:57 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/18 21:43:42 by jgoldste         ###   ########.fr       */
+/*   Created: 2023/08/18 21:42:47 by jgoldste          #+#    #+#             */
+/*   Updated: 2023/08/18 21:43:22 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
-
-# include "get_next_line.h"
-# include "constants.h"
-# include "messages.h"
-# include "../libft/libft.h"
-# include "../mini_libx/mlx.h"
-# include <fcntl.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
-# include <unistd.h>
+#ifndef CONSTANTS_H
+# define CONSTANTS_H
 
 #endif
