@@ -6,11 +6,11 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 04:42:33 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/18 20:03:08 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/21 14:43:48 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/get_next_line.h"
+#include "get_next_line.h"
 
 int	ft_strlen_gnl(char *str)
 {

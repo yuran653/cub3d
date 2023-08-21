@@ -6,11 +6,11 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 01:48:39 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/18 20:03:04 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/21 14:43:54 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/get_next_line.h"
+#include "get_next_line.h"
 
 char	*get_end_line(char *line, char *buff)
 {

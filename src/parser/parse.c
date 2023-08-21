@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   constants.h                                        :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/18 21:42:47 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/21 15:37:15 by jgoldste         ###   ########.fr       */
+/*   Created: 2023/08/21 17:07:10 by jgoldste          #+#    #+#             */
+/*   Updated: 2023/08/21 17:15:19 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONSTANTS_H
-# define CONSTANTS_H
+#include "cub3d.h"
 
-# define FILE_EXT ".cub"
-
-#endif
+t_data *parse(int argc, char **argv)
+{
+	if (check_args(argc, argv))
+		return (1);
+}

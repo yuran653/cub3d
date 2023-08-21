@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   constants.h                                        :+:      :+:    :+:   */
+/*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/18 21:42:47 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/21 15:37:15 by jgoldste         ###   ########.fr       */
+/*   Created: 2023/08/21 16:10:28 by jgoldste          #+#    #+#             */
+/*   Updated: 2023/08/21 16:12:48 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONSTANTS_H
-# define CONSTANTS_H
+#include "cub3d.h"
 
-# define FILE_EXT ".cub"
-
-#endif
+void	check_game_dir(void)
+{
+	printf("GAME DIRECTORY: OK\n");
+}

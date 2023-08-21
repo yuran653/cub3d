@@ -6,7 +6,7 @@
 #    By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 19:29:24 by jgoldste          #+#    #+#              #
-#    Updated: 2023/08/18 22:26:35 by jgoldste         ###   ########.fr        #
+#    Updated: 2023/08/21 17:07:53 by jgoldste         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,12 +35,16 @@ GNL_LIST		=	get_next_line.c	get_next_line_utils.c
 GNL				=	$(addprefix $(GNL_DIR), $(GNL_LIST))
 
 PARSER_DIR		=	parser/
-PARSER_LIST		=	check_args.c	error.c\
+PARSER_LIST		=	parse.c		check_args.c	error.c
 PARSER			=	$(addprefix $(PARSER_DIR), $(PARSER_LIST))
+
+GAME_DIR		=	game/
+GAME_LIST		=	game.c
+GAME			=	$(addprefix $(GAME_DIR), $(GAME_LIST))
 
 SOURCES_DIR		=	./src/
 SOURCES_LIST	=	cub3d.c\
-					$(GNL)	$(PARSER)
+					$(GNL)	$(PARSER)	$(GAME)
 SOURCES			=	$(addprefix $(SOURCES_DIR), $(SOURCES_LIST))
 
 OBJECTS_DIR		=	./object/
@@ -65,6 +69,7 @@ $(OBJECTS_DIR):
 	$(MKDIR) $(OBJECTS_DIR)
 	$(MKDIR) $(OBJECTS_DIR)$(GNL_DIR)
 	$(MKDIR) $(OBJECTS_DIR)$(PARSER_DIR)
+	$(MKDIR) $(OBJECTS_DIR)$(GAME_DIR)
 
 $(OBJECTS_DIR)%.o: $(SOURCES_DIR)%.c $(HEADERS)
 	$(CC) $(CFLAGS) $(INCLUDES) -g -c -o $@ $< -MD
@@ -73,19 +78,19 @@ $(LIBFT):
 	$(MAKE) -sC $(LIBFT_DIR)
 
 $(MINILIBX):
-	@$(MAKE) -sC $(MINILIBX_DIR)
+	$(MAKE) -sC $(MINILIBX_DIR)
 
 clean:
-	@$(MAKE) -sC $(LIBFT_DIR) clean
-	@$(MAKE) -sC $(MINILIBX_DIR) clean
-	@rm -rf $(OBJECTS_DIR)
+	$(MAKE) -sC $(LIBFT_DIR) clean
+	$(MAKE) -sC $(MINILIBX_DIR) clean
+	rm -rf $(OBJECTS_DIR)
 	@echo $(YELLOW) "\n\tCub3d 'clean' status: DONE\n" ${END}
 
 
 fclean: clean
-	@rm -rf $(MINILIBX)
-	@rm -rf $(LIBFT)
-	@rm -rf $(NAME)
+	rm -rf $(MINILIBX)
+	rm -rf $(LIBFT)
+	rm -rf $(NAME)
 	@echo $(YELLOW) "\n\tCub3d 'fclean' status: DONE\n" ${END}
 
 re: fclean all
