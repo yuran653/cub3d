@@ -6,7 +6,7 @@
 #    By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 19:29:24 by jgoldste          #+#    #+#              #
-#    Updated: 2023/08/21 17:07:53 by jgoldste         ###   ########.fr        #
+#    Updated: 2023/08/22 13:00:29 by jgoldste         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ GNL_LIST		=	get_next_line.c	get_next_line_utils.c
 GNL				=	$(addprefix $(GNL_DIR), $(GNL_LIST))
 
 PARSER_DIR		=	parser/
-PARSER_LIST		=	parse.c		check_args.c	error.c
+PARSER_LIST		=	parse.c		check_args.c	read_file.c		free_func.c		error.c
 PARSER			=	$(addprefix $(PARSER_DIR), $(PARSER_LIST))
 
 GAME_DIR		=	game/
