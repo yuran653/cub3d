@@ -6,12 +6,18 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:02:26 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/22 16:42:38 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/24 17:41:06 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
+
+typedef struct s_file
+{
+	char	*line;
+	char	**file_content;
+}	t_file;
 
 typedef struct s_color
 {
