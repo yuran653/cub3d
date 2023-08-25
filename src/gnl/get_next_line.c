@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 01:48:39 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/25 18:02:05 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/25 18:17:49 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ char	*get_next_line(int fd)
 	char		*line;
 
 	line = (char *)malloc(sizeof(char) * 1);
-	printf("gnl_get_next_line[%p]\n", &line);
 	if (!line)
 		return (NULL);
 	line[0] = '\0';

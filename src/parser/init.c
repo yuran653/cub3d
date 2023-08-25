@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 15:10:58 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/25 18:02:20 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/25 19:38:06 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ t_color	*init_color(void)
 	t_color	*color;
 
 	color = (t_color *)malloc(sizeof(t_color));
-	printf("init color[%p]\n", &color);
 	if (!color)
 		return (error_msg_null(strerror(errno)));
 	color->r = 0;
@@ -31,7 +30,6 @@ t_map	*init_map(void)
 	t_map	*map;
 
 	map = (t_map*)malloc(sizeof(t_map));
-	printf("init map[%p]\n", &map);
 	if (!map)
 		return (error_msg_null(strerror(errno)));
 	map->width = 0;
@@ -48,7 +46,6 @@ t_data	*init_data(void)
 	t_data *data;
 
 	data = (t_data*)malloc(sizeof(t_data));
-	printf("init_data[%p]\n", &data);
 	if (!data)
 		return (error_msg_null(strerror(errno)));
 	data->north_path = NULL;
@@ -64,4 +61,17 @@ t_data	*init_data(void)
 		return (error_msg_null(strerror(errno)));
 	}
 	return (data);
+}
+
+t_file	*init_file(void)
+{
+	t_file	*file;
+
+	file = (t_file*)malloc(sizeof(t_file));
+	if (!file)
+		return (error_msg_null(strerror(errno)));
+	file->fd = -1;
+	file->line = NULL;
+	file->file_content = NULL;
+	return (file);
 }

@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 04:42:33 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/25 18:02:00 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/25 18:17:43 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ char	*ft_strjoin_gnl(char *s1, char *s2)
 		return (NULL);
 	str = (char *)malloc(sizeof(char)
 			* (ft_strlen_gnl(s1) + ft_strlen_gnl(s2) + 1));
-	printf("gnl_utils_strjoin[%p]\n", &str);
 	if (!str)
 	{
 		free(s1);

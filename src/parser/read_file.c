@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 13:00:06 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/25 18:03:25 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/25 19:38:50 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	array_size(char **array)
 	return (size);
 }
 
-char	**push_back(char **array, char *str)
+char	**push_back(char **array, char *line)
 {
 	char	**new_array;
 	int		size;
@@ -31,12 +31,13 @@ char	**push_back(char **array, char *str)
 	
 	size = array_size(array);
 	new_array = (char **)malloc(sizeof(char *) * (size + 2));
-	printf("readfile_push_back[%p]\n", &array);
+	if (!new_array)
+		return (NULL);
 	i = -1;
 	if (array)
 		while (array[++i])
 			new_array[i] = array[i];
-	new_array[size] = str;
+	new_array[size] = line;
 	new_array[size + 1] = NULL;
 	free(array);
 	array = NULL;
@@ -53,6 +54,7 @@ char	**read_file(char *file_name)
 	fd = open(file_name, O_RDONLY);
 	if (fd == -1)
 		return (error_msg_null(strerror(errno)));
+	file_content = NULL;
 	line = get_next_line(fd);
 	if (!line)
 	{
@@ -60,29 +62,74 @@ char	**read_file(char *file_name)
 				return (error_msg_null(strerror(errno)));
 		return (error_msg_null(EMPTY_FILE));
 	}
-	file_content = NULL;
-	int i = 0;
 	while (line)
 	{
 		file_content = push_back(file_content, line);
-		line = get_next_line(fd);
-		if (i == 2)
+		if (!file_content)
 		{
+			free_array((void**)file_content);
+			file_content = NULL;
 			free(line);
 			line = NULL;
-			errno = 35;
+			return (error_msg_null(strerror(errno)));
 		}
+		line = get_next_line(fd);
 		if (!line)
 		{
 			if (errno == ENOMEM || errno == EAGAIN || errno == EINVAL)
 			{
 				free_array((void**)file_content);
 				file_content = NULL;
-                return (error_msg_null(strerror(errno)));
+				return (error_msg_null(strerror(errno)));
 			}
 		}
-		i++;
 	}
 	close_check(fd);
 	return (file_content);
 }
+
+
+
+// char	**read_file(char *file_name)
+// {
+// 	int		fd;
+// 	char	*line;
+// 	char	**file_content;
+
+// 	errno = 0;
+// 	fd = open(file_name, O_RDONLY);
+// 	if (fd == -1)
+// 		return (error_msg_null(strerror(errno)));
+// 	file_content = NULL;
+// 	line = get_next_line(fd);
+// 	if (!line)
+// 	{
+// 		if (errno == ENOMEM || errno == EAGAIN || errno == EINVAL)
+// 				return (error_msg_null(strerror(errno)));
+// 		return (error_msg_null(EMPTY_FILE));
+// 	}
+// 	while (line)
+// 	{
+// 		file_content = push_back(file_content, line);
+// 		if (!file_content)
+// 		{
+// 			free_array((void**)file_content);
+// 			file_content = NULL;
+// 			free(line);
+// 			line = NULL;
+// 			return (error_msg_null(strerror(errno)));
+// 		}
+// 		line = get_next_line(fd);
+// 		if (!line)
+// 		{
+// 			if (errno == ENOMEM || errno == EAGAIN || errno == EINVAL)
+// 			{
+// 				free_array((void**)file_content);
+// 				file_content = NULL;
+// 				return (error_msg_null(strerror(errno)));
+// 			}
+// 		}
+// 	}
+// 	close_check(fd);
+// 	return (file_content);
+// }

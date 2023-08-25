@@ -6,18 +6,19 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:02:26 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/25 17:36:21 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/25 19:37:47 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-// typedef struct s_file
-// {
-// 	char	*line;
-// 	char	**file_content;
-// }	t_file;
+typedef struct s_file
+{
+	int		fd;
+	char	*line;
+	char	**file_content;
+}	t_file;
 
 typedef struct s_map
 {

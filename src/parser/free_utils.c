@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 12:14:09 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/25 17:43:56 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/25 19:25:13 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,25 @@ void	free_array(void **array)
 	i = 0;
 	if (array)
 		while (array[i])
+		{
 			free(array[i++]);
+			array[i] = NULL;
+		}
+	free(array);
 }
+
+void	free_file(t_file *file)
+{
+	if (file)
+	{
+		free(file->line);
+		file->line = NULL;
+		free_array((void**)file->file_content);
+		file->file_content = NULL;
+		free(file);
+	}
+}
+
 void	free_map(t_map *map)
 {
 	if (map)
@@ -30,7 +47,6 @@ void	free_map(t_map *map)
 		free(map);
 	}
 }
-
 
 void	free_data(t_data *data)
 {
