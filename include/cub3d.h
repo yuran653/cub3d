@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:57 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/24 17:40:00 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/25 12:32:55 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,12 @@ char	**read_file(char *file_name);
 char	**push_back(char **array, char *str);
 int		array_size(char **array);
 
-// free_func.c
+// free_utils.c
 void	free_null(void **str);
+void 	free_null_ptr(void **ptr);
 void	free_array(void **array);
+
+// free_struct_utils.c
 void	free_map(t_map *map);
 void	free_data(t_data *data);
 
