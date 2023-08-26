@@ -6,13 +6,13 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 21:37:17 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/22 16:45:13 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/26 17:45:45 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int check_file_ext(char* file_name)
+int	check_file_ext(char *file_name)
 {
 	int	ext_len;
 	int	index;

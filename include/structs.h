@@ -6,19 +6,19 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:02:26 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/25 19:37:47 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/26 17:40:10 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-typedef struct s_file
+typedef struct s_color
 {
-	int		fd;
-	char	*line;
-	char	**file_content;
-}	t_file;
+	int	r;
+	int	g;
+	int	b;
+}	t_color;
 
 typedef struct s_map
 {
@@ -30,12 +30,12 @@ typedef struct s_map
 	char	**map_array;
 }	t_map;
 
-typedef struct s_color
+typedef struct s_file
 {
-	int	r;
-	int	g;
-	int b;
-}	t_color;
+	int		fd;
+	char	*line;
+	char	**content;
+}	t_file;
 
 typedef struct s_data
 {
@@ -43,6 +43,7 @@ typedef struct s_data
 	char	*south_path;
 	char	*east_path;
 	char	*west_path;
+	t_file	*file;
 	t_map	*map;
 	t_color	*color;
 }	t_data;
