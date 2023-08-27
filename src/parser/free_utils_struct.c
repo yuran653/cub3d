@@ -6,38 +6,40 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 15:02:19 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/26 17:43:27 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/27 14:16:08 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_color	*free_color(t_color *color)
+void	free_data_color(t_data *data)
 {
-	if (color)
-		free(color);
-	return (NULL);
+	if (data->color)
+	{
+		free(data->color);
+		data->color = NULL;
+	}
 }
 
-t_map	*free_map(t_map *map)
+void	free_data_map(t_data *data)
 {
-	if (map)
+	if (data->map)
 	{
-		map->map_array = free_array(map->map_array);
-		free(map);
+		data->map->map_array = free_array(data->map->map_array);
+		free(data->map);
+		data->map = NULL;
 	}
-	return (NULL);
 }
 
-t_file	*free_file(t_file *file)
+void	free_data_file(t_data *data)
 {
-	if (file)
+	if (data->file)
 	{
-		free(file->line);
-		file->content = free_array(file->content);
-		free(file);
+		free(data->file->line);
+		data->file->content = free_array(data->file->content);
+		free(data->file);
+		data->file = NULL;
 	}
-	return (NULL);
 }
 
 t_data	*free_data(t_data *data)
@@ -52,9 +54,9 @@ t_data	*free_data(t_data *data)
 		data->north_path = NULL;
 		free(data->west_path);
 		data->west_path = NULL;
-		data->file = free_file(data->file);
-		data->map = free_map(data->map);
-		data->color = free_color(data->color);
+		free_data_file(data);
+		free_data_map(data);
+		free_data_color(data);
 		free(data);
 	}
 	return (NULL);

@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:57 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/26 18:03:07 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/27 14:17:44 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ int		array_size(char **array);
 char	**free_array(char **array);
 
 // free_utils_struct.c
-t_file	*free_file(t_file *file);
 t_data	*free_data(t_data *data);
-t_map	*free_map(t_map *map);
-t_color	*free_color(t_color *color);
+void	free_data_file(t_data *data);
+void	free_data_map(t_data *data);
+void	free_data_color(t_data *data);
 
 // error.c
 int		error_msg_1(char *error_msg);
