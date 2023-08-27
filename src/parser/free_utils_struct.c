@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 15:02:19 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/27 14:16:08 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/27 18:14:58 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,15 @@
 
 void	free_data_color(t_data *data)
 {
-	if (data->color)
+	if (data->ceilling)
 	{
-		free(data->color);
-		data->color = NULL;
+		free(data->ceilling);
+		data->ceilling = NULL;
+	}
+	if (data->floor)
+	{
+		free(data->floor);
+		data->floor = NULL;
 	}
 }
 
@@ -33,12 +38,12 @@ void	free_data_map(t_data *data)
 
 void	free_data_file(t_data *data)
 {
-	if (data->file)
+	if (data->map_file)
 	{
-		free(data->file->line);
-		data->file->content = free_array(data->file->content);
-		free(data->file);
-		data->file = NULL;
+		free(data->map_file->line);
+		data->map_file->content = free_array(data->map_file->content);
+		free(data->map_file);
+		data->map_file = NULL;
 	}
 }
 

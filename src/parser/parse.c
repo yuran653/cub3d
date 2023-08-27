@@ -6,11 +6,20 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:07:10 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/27 14:22:07 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/27 18:03:06 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int	check_args(int argc, char **argv)
+{
+	if (argc != 2)
+		return (error_msg_1(ERROR_ARGS, NULL));
+	if (check_file_ext(argv[1], MAP_EXT))
+		return (1);
+	return (0);
+}
 
 t_data	*parse(int argc, char **argv)
 {
@@ -21,7 +30,9 @@ t_data	*parse(int argc, char **argv)
 	data = init_data();
 	if (!data)
 		return (NULL);
-	if (read_file(argv[1], data))
+	if (read_map(argv[1], data))
+		return (free_data(data));
+	if (parse_map(data))
 		return (free_data(data));
 	return (data);
 }

@@ -6,7 +6,7 @@
 #    By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 19:29:24 by jgoldste          #+#    #+#              #
-#    Updated: 2023/08/26 15:03:35 by jgoldste         ###   ########.fr        #
+#    Updated: 2023/08/27 18:01:39 by jgoldste         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ MINILIBX_HEADER	=	$(MINILIBX_DIR)
 MINILIBX_FLAGS	=	-lmlx -lm -lft -framework OpenGL -framework AppKit -framework Cocoa
 
 HEADERS_DIR		=	./include/
-HEADERS_LIST	=	cub3d.h
+HEADERS_LIST	=	cub3d.h	get_next_line.h	constants.h	messages.h	structs.h
 HEADERS			=	$(addprefix $(HEADERS_DIR), $(HEADERS_LIST))
 
 GNL_DIR			=	gnl/
@@ -35,8 +35,8 @@ GNL_LIST		=	get_next_line.c	get_next_line_utils.c
 GNL				=	$(addprefix $(GNL_DIR), $(GNL_LIST))
 
 PARSER_DIR		=	parser/
-PARSER_LIST		=	parse.c			check_args.c			init.c			read_file.c\
-					free_utils.c	free_utils_struct.c		error.c
+PARSER_LIST		=	parse.c		init.c		read_map.c		parse_map.c\
+					utils.c		free_utils.c	free_utils_struct.c		error.c
 PARSER			=	$(addprefix $(PARSER_DIR), $(PARSER_LIST))
 
 GAME_DIR		=	game/

@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:22 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/26 17:18:20 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/27 18:12:53 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,18 @@ int	main(int argc, char **argv)
 	if (!data)
 		return (1);
 
-	if (data->file->content)
+	if (data)
 	{
-		printf("Map check: started\n");
-		for (int i = 0; data->file->content[i]; i++)
-			printf("%s", data->file->content[i]);
-		printf("Map check: finished\n");
+		if (data->map_file)
+		{
+			if (data->map_file->content)
+			{
+				printf("Map check: started\n");
+				for (int i = 0; data->map_file->content[i]; i++)
+					printf("%s", data->map_file->content[i]);
+				printf("Map check: finished\n");
+			}
+		}
 	}
 	check_game_dir();
 	free(argv[1]);

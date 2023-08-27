@@ -6,36 +6,32 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 21:36:33 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/26 17:41:42 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/27 17:58:15 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	error_msg_1(char *error_msg)
+void	print_error_msg(char *error_msg, char *error_arg)
 {
 	ft_putstr_fd(ERROR_MSG, STDERR_FILENO);
 	ft_putstr_fd(error_msg, STDERR_FILENO);
+	if (error_arg)
+	{
+		ft_putstr_fd(": ", STDERR_FILENO);
+		ft_putstr_fd(error_arg, STDERR_FILENO);
+	}
 	ft_putstr_fd("\n", STDERR_FILENO);
-	return (1);
 }
 
-void	*error_msg_null(void *error_msg)
+void	*error_msg_null(char *error_msg, char *error_arg)
 {
-	ft_putstr_fd(ERROR_MSG, STDERR_FILENO);
-	ft_putstr_fd(error_msg, STDERR_FILENO);
-	ft_putstr_fd("\n", STDERR_FILENO);
+	print_error_msg(error_msg, error_arg);
 	return (NULL);
 }
 
-int	close_check(int fd)
+int	error_msg_1(char *error_msg, char *error_arg)
 {
-	if (close(fd) == -1)
-	{
-		ft_putstr_fd(ERROR_MSG, STDERR_FILENO);
-		ft_putstr_fd(strerror(errno), STDERR_FILENO);
-		ft_putstr_fd("\n", STDERR_FILENO);
-		return (1);
-	}
-	return (0);
+	print_error_msg(error_msg, error_arg);
+	return (1);
 }

@@ -1,27 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_file.c                                        :+:      :+:    :+:   */
+/*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 13:00:06 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/27 14:28:56 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/27 18:14:22 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-int	array_size(char **array)
-{
-	int	size;
-
-	size = 0;
-	if (array)
-		while (array[size])
-			size ++;
-	return (size);
-}
 
 char	**push_back(char **array, char *line)
 {
@@ -44,43 +33,44 @@ char	**push_back(char **array, char *line)
 	return (new_array);
 }
 
-int	open_file(char *file_name, t_data *data)
+int	read_line_error(t_data *data)
 {
-	data->file->fd = open(file_name, O_RDONLY);
-	if (data->file->fd == -1)
+	data->map_file->content = free_array(data->map_file->content);
+	if (errno == ENOMEM || errno == EAGAIN || errno == EINVAL)
+		return (error_msg_1(strerror(errno), NULL));
+	return (error_msg_1(EMPTY_FILE, NULL));
+}
+
+int	open_map(char *file_name, t_data *data)
+{
+	data->map_file->fd = open(file_name, O_RDONLY);
+	if (data->map_file->fd == -1)
 		return (1);
 	return (0);
 }
 
-int	read_line_error(t_data *data)
-{
-	data->file->content = free_array(data->file->content);
-	if (errno == ENOMEM || errno == EAGAIN || errno == EINVAL)
-		return (error_msg_1(strerror(errno)));
-	return (error_msg_1(EMPTY_FILE));
-}
-
-int	read_file(char *file_name, t_data *data)
+int	read_map(char *file_name, t_data *data)
 {
 	errno = 0;
-	if (open_file(file_name, data))
-		return (error_msg_1(strerror(errno)));
-	data->file->line = get_next_line(data->file->fd);
-	if (!data->file->line)
+	if (open_map(file_name, data))
+		return (error_msg_1(strerror(errno), file_name));
+	data->map_file->line = get_next_line(data->map_file->fd);
+	if (!data->map_file->line)
 		return (read_line_error(data));
-	while (data->file->line)
+	while (data->map_file->line)
 	{
-		data->file->content = push_back(data->file->content, data->file->line);
-		if (!data->file->content)
+		data->map_file->content
+			= push_back(data->map_file->content, data->map_file->line);
+		if (!data->map_file->content)
 		{
-			free(data->file->line);
-			data->file->line = NULL;
-			return (error_msg_1(strerror(errno)));
+			free(data->map_file->line);
+			data->map_file->line = NULL;
+			return (error_msg_1(strerror(errno), NULL));
 		}
-		data->file->line = get_next_line(data->file->fd);
-		if (!data->file->line)
+		data->map_file->line = get_next_line(data->map_file->fd);
+		if (!data->map_file->line)
 			if (errno == ENOMEM || errno == EAGAIN || errno == EINVAL)
 				return (read_line_error(data));
 	}
-	return (close_check(data->file->fd));
+	return (close_fd(data->map_file->fd));
 }

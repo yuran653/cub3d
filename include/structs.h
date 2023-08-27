@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:02:26 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/26 17:40:10 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/27 18:12:22 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,10 @@ typedef struct s_data
 	char	*south_path;
 	char	*east_path;
 	char	*west_path;
-	t_file	*file;
+	t_color	*ceilling;
+	t_color	*floor;
+	t_file	*map_file;
 	t_map	*map;
-	t_color	*color;
 }	t_data;
 
 #endif
