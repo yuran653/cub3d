@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:57 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/27 18:00:46 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/28 19:12:01 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ char	**push_back(char **array, char *line);
 
 // parse_map.c
 int		parse_map(t_data *data);
-// int		define_texture(t_data *data);
 
 // utils.c
 int		check_file_ext(char *file_name, char *file_ext);

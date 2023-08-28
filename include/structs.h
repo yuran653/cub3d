@@ -6,12 +6,20 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:02:26 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/27 18:12:22 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/28 19:26:44 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
+
+enum e_player_orient
+{
+	E_NORTH,
+	E_SOUTH,
+	E_EAST,
+	E_WEST
+};
 
 typedef struct s_color
 {

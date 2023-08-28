@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:22 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/27 18:21:12 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/28 19:34:22 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,15 @@ int	main(int argc, char **argv)
 {
 	t_data	*data;
 
-	// argc = 2;
+	argc = 2;
 	// argv[1] = ft_strdup("maps/subject_map.cub");
+	argv[1] = ft_strdup("maps/is_print.cub");
 
 	data = parse(argc, argv);
 	if (!data)
 		return (1);
 
-	// if (data)
+	// if (data)// !for test
 	// {
 	// 	if (data->map_file)
 	// 	{
@@ -35,12 +36,14 @@ int	main(int argc, char **argv)
 	// 			printf("Map check: finished\n");
 	// 		}
 	// 	}
-	// }
+	// 	else
+	// 		printf("data->map_file->content: is empty\n");
+	// } // for test!
 
 	check_game_dir();
 
-	// free(argv[1]);
-	// argv[1] = NULL;
+	free(argv[1]);
+	argv[1] = NULL;
 
 	data = free_data(data);
 	return (0);
