@@ -6,12 +6,19 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:02:26 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/28 19:26:44 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/29 19:01:59 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
+
+enum e_define_status
+{
+	DEFINED_NONE = 0,
+	DEFINED_COLOR = 2,
+	DEFINED_TEXTURE = 4,
+};
 
 enum e_player_orient
 {

@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:07:10 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/27 18:03:06 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/29 16:10:03 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_data	*parse(int argc, char **argv)
 		return (NULL);
 	if (read_map(argv[1], data))
 		return (free_data(data));
-	if (parse_map(data))
+	if (parse_map_file(data))
 		return (free_data(data));
 	return (data);
 }

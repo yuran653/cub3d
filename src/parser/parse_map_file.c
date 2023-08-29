@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   constants.h                                        :+:      :+:    :+:   */
+/*   parse_map_file.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/18 21:42:47 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/29 19:10:35 by jgoldste         ###   ########.fr       */
+/*   Created: 2023/08/27 14:33:22 by jgoldste          #+#    #+#             */
+/*   Updated: 2023/08/29 19:11:57 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONSTANTS_H
-# define CONSTANTS_H
+#include "cub3d.h"
 
-# define SPACE_SIGN 32
-# define MAP_EXT ".cub"
-# define TEXTURE_EXT ".xpm"
-# define NORTH_TEXTURE "NO "
-# define SOUTH_TEXTURE "SO "
-# define EAST_TEXTURE "EA "
-# define WEST_TEXTURE "WE "
-# define TEXTURE_AMOUNT 4
-# define FLOOR_COLOR "F "
-# define CEILLING_COLOR "C "
-# define COLOR_AMOUNT 2
+int	is_empty_line(char *line)
+{
+	while (*line)
+	{
+		if (ft_isprint(*line) == true && *line != SPACE_SIGN)
+			return (false);
+		line++;
+	}
+	return (true);
+}
 
-#endif
+int	parse_map_file(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	if (define_texture(data, &i))
+		return (1);
+	if (define_color(data, &i))
+		return (1);
+	if (define_map(data, &i))
+		return (1);
+	free_data_file(data);
+	return (0);
+}
