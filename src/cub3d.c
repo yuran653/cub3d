@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:22 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/29 19:13:12 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/30 18:58:15 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,18 @@ int	main(int argc, char **argv)
 	if (data)// !for test
 	{
 		if (data->map_file)
-		{
-			if (data->map_file->content)
-			{
-				printf("Map check: started\n");
-				for (int i = 0; data->map_file->content[i]; i++)
-					printf("<-%s", data->map_file->content[i]);
-				printf("Map check: finished\n");
-			}
-		}
+			printf("data->map_file->content: \e[1;31mIS NOT EMPTY\e[0m\n");
+		// {
+		// 	if (data->map_file->content)
+		// 	{
+		// 		printf("Map check: started\n");
+		// 		for (int i = 0; data->map_file->content[i]; i++)
+		// 			printf("<-%s", data->map_file->content[i]);
+		// 		printf("Map check: finished\n");
+		// 	}
+		// }
 		else
-			printf("data->map_file->content: is empty\n");
+			printf("data->map_file->content: IS EMPTY\n");
 	} // for test!
 
 	check_game_dir();

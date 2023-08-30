@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 21:42:47 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/29 19:10:35 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/30 15:13:27 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CONSTANTS_H
 
 # define SPACE_SIGN 32
+# define NEW_LINE "\n"
 # define MAP_EXT ".cub"
 # define TEXTURE_EXT ".xpm"
 # define NORTH_TEXTURE "NO "

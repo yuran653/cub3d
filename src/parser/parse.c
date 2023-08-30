@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:07:10 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/29 16:10:03 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:27:15 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 int	check_args(int argc, char **argv)
 {
 	if (argc != 2)
-		return (error_msg_1(ERROR_ARGS, NULL));
+		return (error_msg_return_1(ERROR_ARGS, NULL));
 	if (check_file_ext(argv[1], MAP_EXT))
-		return (1);
+		return (error_msg_return_1(ERROR_EXT, argv[1]));
 	return (0);
 }
 

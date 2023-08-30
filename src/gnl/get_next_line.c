@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 01:48:39 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/25 18:17:49 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:51:40 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ char	*get_end_line(char *line, char *buff)
 		count_n = count_l;
 		while (line[count_l] != '\0')
 			buff[count_b++] = line[count_l++];
+		line[count_n - 1] = '\0';
 		line[count_n] = '\0';
 		while (count_b < BUFFER_SIZE)
 			buff[count_b++] = '\0';

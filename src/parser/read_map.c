@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 13:00:06 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/27 18:14:22 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:52:15 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ int	read_line_error(t_data *data)
 {
 	data->map_file->content = free_array(data->map_file->content);
 	if (errno == ENOMEM || errno == EAGAIN || errno == EINVAL)
-		return (error_msg_1(strerror(errno), NULL));
-	return (error_msg_1(EMPTY_FILE, NULL));
+		return (error_msg_return_1(strerror(errno), NULL));
+	return (error_msg_return_1(EMPTY_FILE, NULL));
 }
 
 int	open_map(char *file_name, t_data *data)
@@ -53,7 +53,7 @@ int	read_map(char *file_name, t_data *data)
 {
 	errno = 0;
 	if (open_map(file_name, data))
-		return (error_msg_1(strerror(errno), file_name));
+		return (error_msg_return_1(strerror(errno), file_name));
 	data->map_file->line = get_next_line(data->map_file->fd);
 	if (!data->map_file->line)
 		return (read_line_error(data));
@@ -65,7 +65,7 @@ int	read_map(char *file_name, t_data *data)
 		{
 			free(data->map_file->line);
 			data->map_file->line = NULL;
-			return (error_msg_1(strerror(errno), NULL));
+			return (error_msg_return_1(strerror(errno), NULL));
 		}
 		data->map_file->line = get_next_line(data->map_file->fd);
 		if (!data->map_file->line)

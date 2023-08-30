@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 15:10:58 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/27 18:13:07 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/30 14:01:31 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_color	*init_color(void)
 
 	color = (t_color *)malloc(sizeof(t_color));
 	if (!color)
-		return (error_msg_null(strerror(errno), NULL));
+		return (error_msg_return_null(strerror(errno), NULL));
 	color->r = -1;
 	color->g = -1;
 	color->b = -1;
@@ -31,7 +31,7 @@ t_map	*init_map(void)
 
 	map = (t_map *)malloc(sizeof(t_map));
 	if (!map)
-		return (error_msg_null(strerror(errno), NULL));
+		return (error_msg_return_null(strerror(errno), NULL));
 	map->width = -1;
 	map->height = -1;
 	map->player_x = -1;
@@ -47,7 +47,7 @@ t_file	*init_file(void)
 
 	file = (t_file *)malloc(sizeof(t_file));
 	if (!file)
-		return (error_msg_null(strerror(errno), NULL));
+		return (error_msg_return_null(strerror(errno), NULL));
 	file->fd = -1;
 	file->line = NULL;
 	file->content = NULL;
@@ -60,7 +60,7 @@ t_data	*init_data(void)
 
 	data = (t_data *)malloc(sizeof(t_data));
 	if (!data)
-		return (error_msg_null(strerror(errno), NULL));
+		return (error_msg_return_null(strerror(errno), NULL));
 	data->north_path = NULL;
 	data->south_path = NULL;
 	data->east_path = NULL;
