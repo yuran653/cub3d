@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:57 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/30 19:26:17 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/31 18:30:38 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@ int		parse_map_file(t_data *data);
 
 // define_texture.c
 int		define_texture(t_data *data, int *i);
+int		define_texture_path(t_data *data, int i);
+int		define_texture_value(t_data *data, char **str, char *id_ptr);
+int		assign_texture_value(char **data_path, char **str, char *id_ptr);
 
 // define_color.c
 int		define_color(t_data *data, int *i);
@@ -82,6 +85,6 @@ int		error_define_amount(char *error_arg, int defined_amount);
 
 // --- Game ---
 // game.c
-void	check_game_dir(void);
+void	check_game_dir(t_data *data);
 
 #endif
