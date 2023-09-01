@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 16:10:28 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/31 18:46:16 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/31 22:50:34 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	check_game_dir(t_data *data)
 {
 	printf("GAME DIRECTORY: OK\n");
 	if (data->map_file)
-		printf("MAP FILE ARE NOT CLEARED\n");
+		printf("MAP FILE IS NOT CLEARED\n");
 	else
 		printf("MAP FILE IS CORRECTLY CLEARED\n");
 	printf("--- DEFINED VALUES ---\n");

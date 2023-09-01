@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 21:41:05 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/31 18:44:08 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/01 00:05:20 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # define ERROR_COLOR "failed to initialize the colors"
 # define ERROR_COLOR_DEF "failed to initialize the color. Already defined"
 # define ERROR_COLOR_ID "wrong color identifier"
+# define ERROR_COLOR_DIGIT "failed to initialize the color. Value is not digit"
 # define ERROR_COLOR_AMOUNT "failed to initialize the colors. Wrong amount"
 # define ERROR_MAP "failed to initialize the map"
 

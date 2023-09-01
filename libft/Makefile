@@ -6,7 +6,7 @@
 #    By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 20:19:15 by jgoldste          #+#    #+#              #
-#    Updated: 2023/08/18 20:31:01 by jgoldste         ###   ########.fr        #
+#    Updated: 2023/08/31 22:13:23 by jgoldste         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,9 +39,9 @@ YELLOW			=	"\033[1;33m"
 GREEN			=	"\033[1;32m"
 END				=	"\033[0m"
 
-.PHONY: all clean fclean re
+.PHONY: all fix-libft clean fclean re
 
-all: $(NAME)
+all: $(NAME) fix-libft
 
 $(NAME)	: $(OBJS) $(HEADER)
 	ar rcs $(NAME) $?
@@ -52,6 +52,9 @@ $(OBJ_DIR):
 
 $(OBJ_DIR)%.o: %.c $(HEADER) | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -I$(HEADER) -c $< -o $@ -MD
+
+fix-libft:
+	ar -d $(NAME) $(HEADER)
 
 clean:
 	rm -rf $(OBJ_DIR)

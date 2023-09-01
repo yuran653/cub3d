@@ -6,25 +6,37 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:01:03 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/31 19:30:41 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/01 00:39:11 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	assign_color_value(t_color *color, char **str, char *id_ptr)
+int	assign_color_value(t_color *t_color, char *str, int rgb)
+{
+	return (0);
+}
+
+int	split_color_value(t_color *color, char **str, char *id_ptr)
 {
 	char	**values;
+	int		i;
+	int		j;
 	
-	if (color->r > -1)
+	if (color->r > -1 || color->g > -1 || color->b > -1)
 		return (error_msg_return_1(ERROR_COLOR_DEF, id_ptr));
 	values = ft_split(*str, ',');
 	if (!values)
 		return (error_msg_return_1(strerror(errno), ERROR_COLOR));
-	printf("--->[%s]values to define:", id_ptr);
-	for (int j = 0; values[j]; j++)
-		printf("[%s]", values[j]);
-	printf("\n");
+	i = 0;
+	while (values[i])
+	{
+		if (assign_color_value(color, values[i], i))
+		{
+			values = free_array(values);
+			return (1);
+		}
+	}
 	values = free_array(values);
 	return (0);
 }
@@ -36,9 +48,9 @@ int	define_color_value(t_data *data, char **str, char *id_ptr)
 	skip(str, id_ptr);
 	len = ft_strlen(id_ptr);
 	if (ft_strncmp(CEILLING_COLOR, id_ptr, len) == 0)
-		return (assign_color_value(data->ceilling, str, id_ptr));
+		return (split_color_value(data->ceilling, str, id_ptr));
 	else if (ft_strncmp(FLOOR_COLOR, id_ptr, len) == 0)
-		return (assign_color_value(data->ceilling, str, id_ptr));
+		return (split_color_value(data->ceilling, str, id_ptr));
 	return (0);
 }
 
