@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:57 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/01 23:54:10 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/02 01:02:28 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ t_file	*init_file(void);
 t_data	*init_data(void);
 t_map	*init_map(void);
 t_color	*init_color(void);
+void	close_data_fd(t_data *data);
 
 // read_map.c
 int		read_map(char *file_name, t_data *data);
@@ -52,10 +53,7 @@ int		check_id(char *str, char *id);
 
 // define_texture.c
 void	define_texture_value(t_data *data, char **str);
-// // int		define_texture(t_data *data, int *i);
-// // int		define_texture_path(t_data *data, int i);
-// int		define_texture_value(t_data *data, char **str, char *id_ptr, int *def_txt);
-// int		assign_texture_value(char **data_path, char **str, char *id_ptr, int *def_txt);
+void	assign_texture_value(t_data *data, int *fd, char **path, char **str);
 
 // define_color.c
 void	define_color_value(t_data *data, char **str);

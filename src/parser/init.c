@@ -6,11 +6,23 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 15:10:58 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/01 16:39:04 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/02 01:06:46 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	close_data_fd(t_data *data)
+{
+	if (data->north_fd != -1)
+		close_fd(data->north_fd);
+	if (data->south_fd != -1)
+		close_fd(data->south_fd);
+	if (data->east_fd != -1)
+		close_fd(data->east_fd);
+	if (data->west_fd != -1)
+		close_fd(data->west_fd);
+}
 
 t_color	*init_color(void)
 {
@@ -67,16 +79,16 @@ t_data	*init_data(void)
 	data->south_path = NULL;
 	data->east_path = NULL;
 	data->west_path = NULL;
+	data->north_fd = -1;
+	data->south_fd = -1;
+	data->east_fd = -1;
+	data->west_fd = -1;
 	data->ceilling = init_color();
 	data->floor = init_color();
 	data->map_file = init_file();
 	data->map = init_map();
 	if (data->ceilling == NULL || data->floor == NULL
 		|| data->map == NULL || data->map_file == NULL)
-	{
-		free_data(data);
-		data = NULL;
-		return (NULL);
-	}
+		return (free_data(data));
 	return (data);
 }
