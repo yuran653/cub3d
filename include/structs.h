@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:02:26 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/01 00:34:48 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/01 16:38:34 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ typedef struct s_map
 typedef struct s_file
 {
 	int		fd;
+	int		defined_color;
+	int		defined_texture;
 	char	*line;
 	char	**content;
 }	t_file;

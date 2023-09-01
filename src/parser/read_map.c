@@ -6,11 +6,19 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 13:00:06 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/30 16:52:15 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/01 17:34:15 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int	error_push_back(t_data *data, int errno_malloc)
+{
+	close_fd(data->map_file->fd);
+	free(data->map_file->line);
+	data->map_file->line = NULL;
+	return (error_msg_return_1(strerror(errno_malloc), NULL));
+}
 
 char	**push_back(char **array, char *line)
 {
@@ -35,6 +43,7 @@ char	**push_back(char **array, char *line)
 
 int	read_line_error(t_data *data)
 {
+	close_fd(data->map_file->fd);
 	data->map_file->content = free_array(data->map_file->content);
 	if (errno == ENOMEM || errno == EAGAIN || errno == EINVAL)
 		return (error_msg_return_1(strerror(errno), NULL));
@@ -62,11 +71,7 @@ int	read_map(char *file_name, t_data *data)
 		data->map_file->content
 			= push_back(data->map_file->content, data->map_file->line);
 		if (!data->map_file->content)
-		{
-			free(data->map_file->line);
-			data->map_file->line = NULL;
-			return (error_msg_return_1(strerror(errno), NULL));
-		}
+			return (error_push_back(data, errno));
 		data->map_file->line = get_next_line(data->map_file->fd);
 		if (!data->map_file->line)
 			if (errno == ENOMEM || errno == EAGAIN || errno == EINVAL)

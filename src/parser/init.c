@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 15:10:58 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/30 14:01:31 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/01 16:39:04 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ t_file	*init_file(void)
 	if (!file)
 		return (error_msg_return_null(strerror(errno), NULL));
 	file->fd = -1;
+	file->defined_color = DEFINED_NONE;
+	file->defined_texture = DEFINED_NONE;
 	file->line = NULL;
 	file->content = NULL;
 	return (file);
