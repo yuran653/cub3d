@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:01:03 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/01 19:45:56 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/01 23:37:39 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 void	define_color_value(t_data *data, char **str)
 {
-	(void)*str;
-	// printf("->[%s]\n", *str);
+	printf("->[%s]\n", *str);
 	data->map_file->defined_color++;
 }
 

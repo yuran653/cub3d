@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:57 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/01 19:38:29 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/01 23:54:10 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int		error_push_back(t_data *data, int errno_malloc);
 // parse_map_file.c
 void	parse_map_file(t_data *data);
 void	define_texture_color(t_data *data, int *i);
+int		check_id_color(char *str);
+int		check_id_texture(char *str);
 int		check_id(char *str, char *id);
 
 // define_texture.c
