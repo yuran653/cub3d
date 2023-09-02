@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:01:03 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/03 00:15:16 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/03 00:48:41 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 void	assign_color_value(t_data *data, t_color *color, char *value)
 {
-	if (color->rgb   == R)
+	if (color->rgb == R)
 	{
 		color->r = ft_atoi(value);
 		if (color->r < 0 || color->r > 255)
 			error_msg_exit_fail(data, ERROR_COLOR_VALUE, value);
 	}
-	else if (color->rgb   == G)
+	else if (color->rgb == G)
 	{
 		color->g = ft_atoi(value);
 		if (color->g < 0 || color->g > 255)
 			error_msg_exit_fail(data, ERROR_COLOR_VALUE, value);
 	}
-	else if (color->rgb   == B)
+	else if (color->rgb == B)
 	{
 		color->b = ft_atoi(value);
 		if (color->b < 0 || color->b > 255)
@@ -34,11 +34,32 @@ void	assign_color_value(t_data *data, t_color *color, char *value)
 	}
 }
 
+static void	is_digit_space(t_data *data, char *value)
+{
+	int	j;
+	
+	j = 0;
+	while (value[j] && ft_isdigit(value[j]))
+		j++;
+	while (value[j])
+		if (value[j++] != SPACE_SIGN)
+			error_msg_exit_fail(data, ERROR_COLOR_VALUE, value);
+}
+
+static void set_value_end_plus_rgb(t_color *color, char *value, int *i)
+{
+	*i = 0;
+	while (value[*i] && value[*i] != DELIMITER)
+		*i += 1;
+	if (value[*i + 1])
+		value[*i] = '\0';
+	color->rgb ++;
+}
+
 void	parse_color_value(t_data *data, t_color *color, char *value)
 {		
 	char	*id;
 	int		i;
-	int		j;
 	
 	if (color->rgb != -1)
 		error_msg_exit_fail(data, ERROR_COLOR_DEF, value);
@@ -51,20 +72,10 @@ void	parse_color_value(t_data *data, t_color *color, char *value)
 		while (value[i] && value[i] == SPACE_SIGN)
 			i++;
 		value = &value[i];
-		i = 0;
-		while (value[i] && value[i] != DELIMITER)
-			i++;
-		if (value[i + 1])
-			value[i] = '\0';
-		color->rgb ++;
+		set_value_end_plus_rgb(color, value, &i);
 		if (color->rgb  >= 3)
 			error_msg_exit_fail(data, ERROR_COLOR_AMOUNT, id);
-		j = 0;
-		while (value[j] && ft_isdigit(value[j]))
-			j++;
-		while (value[j])
-			if (value[j++] != SPACE_SIGN)
-				error_msg_exit_fail(data, ERROR_COLOR_VALUE, value);
+		is_digit_space(data, value);
 		assign_color_value(data, color, value);
 		if (value [i + 1] && value [i + 1] != DELIMITER)
 		{
