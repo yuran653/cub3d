@@ -1,9 +1,9 @@
 
-        SO ./texture/south_texture.xpm
+        SO ./texture/south.xpm
         
         F 220     ,    100,0
-WE      ./texture/west_texture.xpm
- EA ./texture/east_texture.xpm
+WE      ./texture/west.xpm
+ EA ./texture/east.xpm
                         
 
 C         225,30,0       

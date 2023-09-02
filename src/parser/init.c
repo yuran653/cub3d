@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 15:10:58 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/02 01:06:46 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/02 23:46:28 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ t_color	*init_color(void)
 	color = (t_color *)malloc(sizeof(t_color));
 	if (!color)
 		return (error_msg_return_null(strerror(errno), NULL));
+	color->rgb = -1;
 	color->r = -1;
 	color->g = -1;
 	color->b = -1;

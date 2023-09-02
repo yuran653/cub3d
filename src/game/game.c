@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 16:10:28 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/02 00:54:26 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/02 23:41:19 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	check_game_dir(t_data *data)
 		data->west_fd, data->west_path);
 	if (data->ceilling && data->floor)
 		printf("CEILLING COLOR->[%d,%d,%d]\nFLOOR COLOR->[%d,%d,%d]\n",
-				data->ceilling->r, data->floor->g, data->floor->b,
+				data->ceilling->r, data->ceilling->g, data->ceilling->b,
 				data->floor->r, data->floor->g, data->floor->b);
 	else
 		printf("COLORS VARIABLES ARE NOT ALLOCATED\n");

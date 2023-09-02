@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:57 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/02 01:02:28 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/03 00:09:49 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,19 +46,19 @@ int		error_push_back(t_data *data, int errno_malloc);
 
 // parse_map_file.c
 void	parse_map_file(t_data *data);
-void	define_texture_color(t_data *data, int *i);
+void	define_color_texture(t_data *data, int *i);
 int		check_id_color(char *str);
 int		check_id_texture(char *str);
 int		check_id(char *str, char *id);
 
 // define_texture.c
-void	define_texture_value(t_data *data, char **str);
-void	assign_texture_value(t_data *data, int *fd, char **path, char **str);
+void	define_texture_value(t_data *data, char *str);
+void	assign_texture_value(t_data *data, int *fd, char **path, char *str);
 
 // define_color.c
-void	define_color_value(t_data *data, char **str);
-// int		define_color(t_data *data, int *i);
-// int		define_color_value(t_data *data, char **str, char *id_ptr, int *def_clr);
+void	define_color_value(t_data *data, char *value);
+void	parse_color_value(t_data *data, t_color *color, char *value);
+void	assign_color_value(t_data *data, t_color *color, char *value);
 
 // define_map.c
 // int		define_map(t_data *data, int *i);

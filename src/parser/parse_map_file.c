@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 14:33:22 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/02 00:38:26 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/02 23:53:04 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,21 @@ int	check_id(char *str, char *id)
 	return (0);
 }
 
-int	check_id_color(char *str)
-{
-	return (check_id(str, CEILLING_COLOR) == 0
-		|| check_id(str, FLOOR_COLOR) == 0);
-}
-
 int	check_id_texture(char *str)
 {
-	return (check_id(str, NORTH_TEXTURE) == 0
-		|| check_id(str, SOUTH_TEXTURE) == 0
-		|| check_id(str, EAST_TEXTURE) == 0
-		|| check_id (str, WEST_TEXTURE) == 0);
+	return (check_id(str, TEXTURE_NORTH) == 0
+		|| check_id(str, TEXTURE_SOUTH) == 0
+		|| check_id(str, TEXTURE_EAST) == 0
+		|| check_id (str, TEXTURE_WEST) == 0);
 }
 
-void	define_texture_color(t_data *data, int *i)
+int	check_id_color(char *str)
+{
+	return (check_id(str, COLOR_CEILLING) == 0
+		|| check_id(str, COLOR_FLOOR) == 0);
+}
+
+void	define_color_texture(t_data *data, int *i)
 {
 	char	*str;
 
@@ -49,9 +49,9 @@ void	define_texture_color(t_data *data, int *i)
 		str = data->map_file->content[*i];
 		skip_str(&str, NULL);
 		if (check_id_color(str))
-			define_color_value(data, &str);
+			define_color_value(data, str);
 		else if (check_id_texture(str))
-			define_texture_value(data, &str);
+			define_texture_value(data, str);
 		else
 			error_msg_exit_fail(data, ERROR_ID, str);
 		*i += 1;
@@ -66,7 +66,7 @@ void	parse_map_file(t_data *data)
 	int	i;
 
 	i = 0;
-	define_texture_color(data, &i);
+	define_color_texture(data, &i);
 	// define_map(data, &i);
 	free_data_file(data);
 }
