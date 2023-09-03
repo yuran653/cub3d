@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 21:41:05 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/02 23:35:03 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/03 17:33:40 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,11 @@
 # define ERROR_TEXTURE_DEF "failed to initialize the texture. Already defined"
 # define ERROR_COLOR "failed to initialize the colors"
 # define ERROR_COLOR_DEF "failed to initialize the color. Already defined"
-# define ERROR_COLOR_AMOUNT "failed to initialize the color. Wrong amount of values"
+# define ERROR_COLOR_AMOUNT "failed to initialize the color. \
+Wrong amount of values"
 # define ERROR_COLOR_VALUE "failed to initialize the color. Error color value"
 # define ERROR_MAP "failed to initialize the map"
+# define ERROR_MAP_SIZE "failed to initialize the map. Map size is too small"
+# define ERROR_MAP_EMPTY_LINE "failed to initialize the map. Map has empty line"
 
 #endif

@@ -1,7 +1,8 @@
-NO ./path_to_the_north.xmp
-SO ./path_to_the_south.xmp
-WE ./path_to_the_west.xmp
-EA ./path_to_the_east.xmp
+NO ./texture/north.xpm
+        SO ./texture/south.xpm
+        
+WE      ./texture/west.xpm
+ EA ./texture/east.xpm
 
 F 220,100,0
 C 225,30,0

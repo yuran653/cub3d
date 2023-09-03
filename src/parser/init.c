@@ -6,22 +6,24 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 15:10:58 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/02 23:46:28 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/03 18:00:28 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	close_data_fd(t_data *data)
+char	**init_array_null(int size)
 {
-	if (data->north_fd != -1)
-		close_fd(data->north_fd);
-	if (data->south_fd != -1)
-		close_fd(data->south_fd);
-	if (data->east_fd != -1)
-		close_fd(data->east_fd);
-	if (data->west_fd != -1)
-		close_fd(data->west_fd);
+	char	**array;
+	int	i;
+
+	array = (char **)malloc(sizeof(char *) * (size + 1));
+	if (!array)
+		return (NULL);
+	i = 0;
+	while (i <= size)
+		array[i++] = NULL;
+	return (array);
 }
 
 t_color	*init_color(void)

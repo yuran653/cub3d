@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 17:23:11 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/01 23:31:27 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/03 17:56:26 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,7 @@ int	is_empty_line(char *line)
 	return (true);
 }
 
-int	close_fd(int fd)
-{
-	if (close(fd) == -1)
-		return (error_msg_return_1(strerror(errno), NULL));
-	return (0);
-}
+
 
 int	array_size(char **array)
 {

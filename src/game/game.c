@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 16:10:28 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/02 23:41:19 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/03 15:29:34 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,12 @@ void	check_game_dir(t_data *data)
 				data->floor->r, data->floor->g, data->floor->b);
 	else
 		printf("COLORS VARIABLES ARE NOT ALLOCATED\n");
+	if (data->map && data->map->map_array && data->map->map_array[0])
+	{
+		printf("--------- MAP ---------\n");
+		for (int i = 0; data->map->map_array[i]; i++)
+			printf("->[%s]<-\n", data->map->map_array[i]);
+	}
+	else
+		printf("-- MAP IS NOT DEFINED --\n");
 }

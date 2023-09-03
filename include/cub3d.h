@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:57 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/03 00:09:49 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/03 18:17:00 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_file	*init_file(void);
 t_data	*init_data(void);
 t_map	*init_map(void);
 t_color	*init_color(void);
-void	close_data_fd(t_data *data);
+char	**init_array_null(int size);
 
 // read_map.c
 int		read_map(char *file_name, t_data *data);
@@ -58,17 +58,30 @@ void	assign_texture_value(t_data *data, int *fd, char **path, char *str);
 // define_color.c
 void	define_color_value(t_data *data, char *value);
 void	parse_color_value(t_data *data, t_color *color, char *value);
+void	set_value_end(char *value, int *i);
+void	set_rgb_amount(t_data *data, t_color *color, char *id);
+void	is_digit_space(t_data *data, char *value);
+
+// assign_color.c
 void	assign_color_value(t_data *data, t_color *color, char *value);
+void	set_color_value(t_data *data, int *color, char *value);
 
 // define_map.c
-// int		define_map(t_data *data, int *i);
+void	define_map(t_data *data, int *i);
+void	skip_empty_line(char **array, int *i);
+void	copy_map(t_map *dst, t_file *src, int *i);
+void	trim_empty_line(char **array, int size);
+void	check_map_empty_line(t_data *data);
 
 // utils.c
 int		check_file_ext(char *file_name, char *file_ext);
 int		array_size(char **array);
-int		close_fd(int fd);
 int		is_empty_line(char *line);
 void	skip_str(char **str, char *skip);
+
+// utils_close_fd.c
+int		close_fd(int fd);
+void	close_data_fd(t_data *data);
 
 // free_utils.c
 char	**free_array(char **array);
