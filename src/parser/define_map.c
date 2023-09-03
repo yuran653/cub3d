@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:00:49 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/03 18:16:23 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/03 18:22:38 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,5 @@ void	define_map(t_data *data, int *i)
 	copy_map(data->map, data->map_file, i);
 	trim_empty_line(data->map->map_array, size);
 	check_map_empty_line(data);
+	check_map_valid_data(data);
 }

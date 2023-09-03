@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:57 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/03 18:17:00 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/03 18:23:14 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,9 @@ void	skip_empty_line(char **array, int *i);
 void	copy_map(t_map *dst, t_file *src, int *i);
 void	trim_empty_line(char **array, int size);
 void	check_map_empty_line(t_data *data);
+
+// check_map,c
+void	check_map_valid_data(t_data *data);
 
 // utils.c
 int		check_file_ext(char *file_name, char *file_ext);
