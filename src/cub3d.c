@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:22 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/04 18:38:18 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/04 19:12:01 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 		return (1);
 	// --!parser---
 	// ---game---
-	check_game_dir(data);
+	game(data);
 	// --!game---
 	// --free_easy_map---
 	free(argv[1]);
