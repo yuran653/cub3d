@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 18:20:37 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/04 18:52:41 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/04 19:31:23 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	check_map_is_closed(t_data *data, int i, int j)
 {
 	if (check_symbol_inside(data, i, j))
 		error_msg_exit_fail
-			(data, ERROR_MAP_NOT_CLOSED, data->map->map_array[i]);
+			(data, ERROR_MAP, ERROR_MAP_NOT_CLOSED);
 }
 
 void	chech_map_valid_symbol(t_data *data, int i, int j)
