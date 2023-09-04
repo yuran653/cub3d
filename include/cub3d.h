@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:57 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/04 18:11:27 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/04 18:50:01 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ void	check_set_player(t_data *data, int orient, int i, int j);
 
 // check_map_utils.c
 void	trim_space_end(char **map_array, int i);
-int		check_map_borders(t_data *data, int i, int j);
 int		check_symbol_inside(t_data *data, int i, int j);
 
 // utils.c

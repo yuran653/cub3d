@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 18:20:37 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/04 18:36:22 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/04 18:52:41 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	check_set_player(t_data *data, int orient, int i, int j)
 {
 	if (data->map->player_orient != -1)
 		error_msg_exit_fail(data, ERROR_PLAYER_AMOUNT, data->map->map_array[i]);
-	if (check_map_borders(data, i, j))
-		error_msg_exit_fail(data, ERROR_PLAYER_INSIDE, data->map->map_array[i]);
 	if (check_symbol_inside(data, i, j))
 		error_msg_exit_fail(data, ERROR_PLAYER_INSIDE, data->map->map_array[i]);
 	data->map->player_orient = orient;
@@ -27,10 +25,9 @@ void	check_set_player(t_data *data, int orient, int i, int j)
 
 void	check_map_is_closed(t_data *data, int i, int j)
 {
-	if (check_map_borders(data, i, j))
-		error_msg_exit_fail(data, ERROR_MAP_NOT_CLOSED, data->map->map_array[i]);
 	if (check_symbol_inside(data, i, j))
-		error_msg_exit_fail(data, ERROR_MAP_NOT_CLOSED, data->map->map_array[i]);
+		error_msg_exit_fail
+			(data, ERROR_MAP_NOT_CLOSED, data->map->map_array[i]);
 }
 
 void	chech_map_valid_symbol(t_data *data, int i, int j)
@@ -71,4 +68,6 @@ void	check_map_valid_data(t_data *data)
 			error_msg_exit_fail(data, ERROR_MAP, ERROR_MAP_SIZE);
 	}
 	data->map->height = i;
+	if (data->map->player_orient == -1)
+		error_msg_exit_fail(data, ERROR_MAP, ERROR_MAP_NO_PLAYER);
 }
