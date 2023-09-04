@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 18:00:29 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/04 18:50:04 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/04 19:07:41 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ void	trim_space_end(char **map_array, int i)
 	int	len;
 
 	len = ft_strlen(map_array[i]);
-	while (map_array[i][--len] == SPACE_SIGN)
+	while (len > 0 && map_array[i][--len] == SPACE_SIGN)
 		map_array[i][len] = END_LINE_SIGN;
 }
