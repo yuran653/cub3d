@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:57 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/04 18:50:01 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/04 19:10:38 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,6 @@ void	print_error_arg(char *error_arg);
 
 // --- Game ---
 // game.c
-void	check_game_dir(t_data *data);
+void	game(t_data *data);
 
 #endif
