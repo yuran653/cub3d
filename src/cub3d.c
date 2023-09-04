@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:22 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/04 19:12:01 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/04 19:15:00 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	// ---parser---
 	data = parse(argc, argv);
 	if (!data)
-		return (1);
+		return (EXIT_FAILURE);
 	// --!parser---
 	// ---game---
 	game(data);
@@ -33,5 +33,5 @@ int	main(int argc, char **argv)
 	argv[1] = NULL;
 	// --!free_easy_map---
 	data = free_data(data);
-	return (0);
+	return (EXIT_SUCCESS);
 }
