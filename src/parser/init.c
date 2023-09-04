@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 15:10:58 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/03 18:00:28 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/04 15:45:32 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	**init_array_null(int size)
 {
 	char	**array;
-	int	i;
+	int		i;
 
 	array = (char **)malloc(sizeof(char *) * (size + 1));
 	if (!array)

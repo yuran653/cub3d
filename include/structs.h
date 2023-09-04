@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:02:26 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/02 23:46:02 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/04 18:15:01 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,15 @@ enum e_define_status
 
 enum e_player_orient
 {
-	E_NORTH,
-	E_SOUTH,
-	E_EAST,
-	E_WEST
+	E_NORTH = 1,
+	E_SOUTH = 2,
+	E_EAST = 3,
+	E_WEST = 4
 };
 
 typedef struct s_color
 {
-	int rgb;
+	int	rgb;
 	int	r;
 	int	g;
 	int	b;

@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 13:00:06 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/03 18:02:36 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/04 14:24:55 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	error_push_back(t_data *data, int errno_malloc)
 char	**push_back(char **array, char *line)
 {
 	char	**new_array;
-	int	size;
-	int	i;
+	int		size;
+	int		i;
 
 	size = array_size(array);
 	new_array = (char **)malloc(sizeof(char *) * (size + 2));

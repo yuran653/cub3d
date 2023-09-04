@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 17:23:11 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/03 17:56:26 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/04 14:25:17 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	skip_str(char **str, char *skip)
 			*str += len;
 	}
 	while (ft_isprint(**str) == false || **str == SPACE_SIGN)
-			*str += 1;
+		*str += 1;
 }
 
 int	is_empty_line(char *line)
@@ -36,8 +36,6 @@ int	is_empty_line(char *line)
 	}
 	return (true);
 }
-
-
 
 int	array_size(char **array)
 {

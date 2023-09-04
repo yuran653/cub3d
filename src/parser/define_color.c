@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:01:03 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/03 17:39:08 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/04 14:25:41 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	is_digit_space(t_data *data, char *value)
 {
 	int	j;
-	
+
 	j = 0;
 	while (value[j] && ft_isdigit(value[j]))
 		j++;
@@ -27,8 +27,8 @@ void	is_digit_space(t_data *data, char *value)
 void	set_rgb_amount(t_data *data, t_color *color, char *id)
 {
 	color->rgb ++;
-		if (color->rgb  >= 3)
-			error_msg_exit_fail(data, ERROR_COLOR_AMOUNT, id);
+	if (color->rgb >= 3)
+		error_msg_exit_fail(data, ERROR_COLOR_AMOUNT, id);
 }
 
 void	set_value_end(char *value, int *i)
@@ -41,10 +41,10 @@ void	set_value_end(char *value, int *i)
 }
 
 void	parse_color_value(t_data *data, t_color *color, char *value)
-{		
+{
 	char	*id;
-	int	i;
-	
+	int		i;
+
 	if (color->rgb != -1)
 		error_msg_exit_fail(data, ERROR_COLOR_DEF, value);
 	id = value;

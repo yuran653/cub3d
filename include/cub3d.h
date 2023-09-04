@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:57 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/03 18:23:14 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/04 18:11:27 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,14 @@ void	check_map_empty_line(t_data *data);
 
 // check_map,c
 void	check_map_valid_data(t_data *data);
+void	chech_map_valid_symbol(t_data *data, int i, int j);
+void	check_map_is_closed(t_data *data, int i, int j);
+void	check_set_player(t_data *data, int orient, int i, int j);
+
+// check_map_utils.c
+void	trim_space_end(char **map_array, int i);
+int		check_map_borders(t_data *data, int i, int j);
+int		check_symbol_inside(t_data *data, int i, int j);
 
 // utils.c
 int		check_file_ext(char *file_name, char *file_ext);

@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:00:49 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/03 18:22:38 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/04 18:34:50 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	check_map_empty_line(t_data *data)
 {
-	int i;
-	
+	int	i;
+
 	i = -1;
 	while (data->map->map_array[++i])
 		if (is_empty_line(data->map->map_array[i]))
-			error_msg_exit_fail(data, ERROR_MAP_EMPTY_LINE, NULL);
+			error_msg_exit_fail(data, ERROR_MAP, ERROR_MAP_EMPTY_LINE);
 }
 
 void	trim_empty_line(char **array, int size)
@@ -57,8 +57,8 @@ void	define_map(t_data *data, int *i)
 
 	skip_empty_line(data->map_file->content, i);
 	size = array_size(&data->map_file->content[*i]);
-	if (size < 3)
-		error_msg_exit_fail(data, ERROR_MAP_SIZE, NULL);
+	if (size < MAP_MIN_SIZE)
+		error_msg_exit_fail(data, ERROR_MAP, ERROR_MAP_SIZE);
 	data->map->map_array = init_array_null(size);
 	if (!data->map->map_array)
 		error_msg_exit_fail(data, strerror(errno), ERROR_MAP);

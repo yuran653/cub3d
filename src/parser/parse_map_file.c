@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 14:33:22 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/03 17:39:08 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/04 14:24:33 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void	define_color_texture(t_data *data, int *i)
 	{
 		while (data->map_file->content[*i]
 			&& is_empty_line(data->map_file->content[*i]))
-				*i += 1;
+			*i += 1;
 		if (!data->map_file->content[*i])
-			break;
+			break ;
 		str = data->map_file->content[*i];
 		skip_str(&str, NULL);
 		if (check_id_color(str))
