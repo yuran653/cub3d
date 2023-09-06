@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 15:10:58 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/04 15:45:32 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/06 19:16:01 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,6 @@ t_data	*init_data(void)
 	data->south_path = NULL;
 	data->east_path = NULL;
 	data->west_path = NULL;
-	data->north_fd = -1;
-	data->south_fd = -1;
-	data->east_fd = -1;
-	data->west_fd = -1;
 	data->ceilling = init_color();
 	data->floor = init_color();
 	data->map_file = init_file();

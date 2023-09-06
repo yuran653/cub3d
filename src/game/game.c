@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 16:10:28 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/04 19:13:08 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/06 19:01:16 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@ void	game(t_data *data)
 	else
 		printf("MAP FILE IS CORRECTLY CLEARED\n");
 	printf("--- DEFINED VALUES ---\n");
-	printf("NORTH->fd[%d]->%s\nSOUTH->fd[%d]->%s\n EAST->fd[%d]->%s\n WEST->fd[%d]->%s\n",
-		data->north_fd, data->north_path,
-		data->south_fd, data->south_path,
-		data->east_fd, data->east_path,
-		data->west_fd, data->west_path);
+	// printf("NORTH->fd[%d]->%s\nSOUTH->fd[%d]->%s\n EAST->fd[%d]->%s\n WEST->fd[%d]->%s\n",
+	// 	data->north_fd, data->north_path,
+	// 	data->south_fd, data->south_path,
+	// 	data->east_fd, data->east_path,
+	// 	data->west_fd, data->west_path);
+	printf("--NORTH->%s\n--SOUTH->%s\n---EAST->%s\n---WEST->%s\n",
+		data->north_path, data->south_path, data->east_path, data->west_path);
 	if (data->ceilling && data->floor)
 	{
 		printf("- CEILLING COLOR ->[%0.3d,%0.3d,%0.3d]\n",

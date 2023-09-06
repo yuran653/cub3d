@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:57 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/06 16:50:05 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/06 19:14:30 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int		check_id(char *str, char *id);
 
 // define_texture.c
 void	define_texture_value(t_data *data, char *str);
-void	assign_texture_value(t_data *data, int *fd, char **path, char *str);
+void	assign_texture_value(t_data *data, char **path, char *str);
 
 // define_color.c
 void	define_color_value(t_data *data, char *value);
@@ -88,10 +88,7 @@ int		check_file_ext(char *file_name, char *file_ext);
 int		array_size(char **array);
 int		is_empty_line(char *line);
 void	skip_str(char **str, char *skip);
-
-// utils_close_fd.c
 int		close_fd(int fd);
-void	close_data_fd(t_data *data);
 
 // free_utils.c
 char	**free_array(char **array);

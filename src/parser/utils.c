@@ -6,11 +6,18 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 17:23:11 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/06 16:36:06 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/06 19:17:52 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int	close_fd(int fd)
+{
+	if (close(fd) == -1)
+		return (error_msg_return_1(strerror(errno), NULL));
+	return (0);
+}
 
 void	skip_str(char **str, char *skip)
 {
@@ -29,7 +36,7 @@ void	skip_str(char **str, char *skip)
 int	is_empty_line(char *line)
 {
 	if (line)
-		{
+	{
 		while (*line)
 		{
 			if (ft_isprint(*line) == true && *line != SPACE_SIGN)

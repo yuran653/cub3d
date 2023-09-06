@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 12:14:09 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/03 15:28:06 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/06 19:16:09 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ t_data	*free_data(t_data *data)
 		free_data_file(data);
 		free_data_map(data);
 		free_data_color(data);
-		close_data_fd(data);
 		free(data);
 	}
 	return (NULL);

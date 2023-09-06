@@ -6,7 +6,7 @@
 #    By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 19:29:24 by jgoldste          #+#    #+#              #
-#    Updated: 2023/09/04 18:00:47 by jgoldste         ###   ########.fr        #
+#    Updated: 2023/09/06 19:15:49 by jgoldste         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,8 +37,8 @@ GNL				=	$(addprefix $(GNL_DIR), $(GNL_LIST))
 PARSER_DIR		=	parser/
 PARSER_LIST		=	parse.c		init.c		read_map.c		parse_map_file.c\
 					define_texture.c	define_color.c		assign_color.c\
-					define_map.c	check_map.c		check_map_utils.c\
-					free_utils.c	utils.c		utils_close_fd.c	error.c
+					define_map.c		check_map.c			check_map_utils.c\
+					free_utils.c		utils.c				error.c
 PARSER			=	$(addprefix $(PARSER_DIR), $(PARSER_LIST))
 
 GAME_DIR		=	game/
