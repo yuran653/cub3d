@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 17:23:11 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/04 14:25:17 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/06 16:36:06 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,14 @@ void	skip_str(char **str, char *skip)
 
 int	is_empty_line(char *line)
 {
-	while (*line)
-	{
-		if (ft_isprint(*line) == true && *line != SPACE_SIGN)
-			return (false);
-		line++;
+	if (line)
+		{
+		while (*line)
+		{
+			if (ft_isprint(*line) == true && *line != SPACE_SIGN)
+				return (false);
+			line++;
+		}
 	}
 	return (true);
 }

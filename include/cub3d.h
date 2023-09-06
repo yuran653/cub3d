@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:57 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/04 19:10:38 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/06 16:50:05 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	set_color_value(t_data *data, int *color, char *value);
 void	define_map(t_data *data, int *i);
 void	skip_empty_line(char **array, int *i);
 void	copy_map(t_map *dst, t_file *src, int *i);
-void	trim_empty_line(char **array, int size);
+void	trim_empty_line(t_data *data, char **array, int size);
 void	check_map_empty_line(t_data *data);
 
 // check_map,c

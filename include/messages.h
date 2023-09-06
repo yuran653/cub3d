@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 21:41:05 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/04 19:30:46 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/06 16:44:01 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 wrong amount of values"
 # define ERROR_COLOR_VALUE "failed to initialize the color: error color value"
 # define ERROR_MAP "failed to initialize the map"
+# define ERROR_MAP_NONE "map is absent"
 # define ERROR_MAP_SIZE "map size is too small"
 # define ERROR_MAP_EMPTY_LINE "map has empty line"
 # define ERROR_MAP_SYMBOL "failed to initialize the map: undefined map symbol"

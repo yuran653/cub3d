@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:00:49 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/04 18:34:50 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/06 16:50:57 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,15 @@ void	check_map_empty_line(t_data *data)
 			error_msg_exit_fail(data, ERROR_MAP, ERROR_MAP_EMPTY_LINE);
 }
 
-void	trim_empty_line(char **array, int size)
+void	trim_empty_line(t_data *data, char **array, int size)
 {
 	while (size > 0 && is_empty_line(array[--size]))
 	{
 		free(array[size]);
 		array[size] = NULL;
 	}
+	if (size < MAP_MIN_SIZE)
+		error_msg_exit_fail(data, ERROR_MAP, ERROR_MAP_SIZE);
 }
 
 void	copy_map(t_map *dst, t_file *src, int *i)
@@ -47,7 +49,7 @@ void	copy_map(t_map *dst, t_file *src, int *i)
 
 void	skip_empty_line(char **array, int *i)
 {
-	while (is_empty_line(array[*i]))
+	while (array[*i] && is_empty_line(array[*i]))
 		*i += 1;
 }
 
@@ -56,6 +58,8 @@ void	define_map(t_data *data, int *i)
 	int	size;
 
 	skip_empty_line(data->map_file->content, i);
+	if (!data->map_file->content[*i])
+		error_msg_exit_fail(data, ERROR_MAP, ERROR_MAP_NONE);
 	size = array_size(&data->map_file->content[*i]);
 	if (size < MAP_MIN_SIZE)
 		error_msg_exit_fail(data, ERROR_MAP, ERROR_MAP_SIZE);
@@ -63,7 +67,7 @@ void	define_map(t_data *data, int *i)
 	if (!data->map->map_array)
 		error_msg_exit_fail(data, strerror(errno), ERROR_MAP);
 	copy_map(data->map, data->map_file, i);
-	trim_empty_line(data->map->map_array, size);
+	trim_empty_line(data, data->map->map_array, size);
 	check_map_empty_line(data);
 	check_map_valid_data(data);
 }
