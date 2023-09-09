@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:02:26 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/06 19:15:56 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/10 05:32:35 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct s_color
 	int	r;
 	int	g;
 	int	b;
+	int	hex;
 }	t_color;
 
 typedef struct s_map
@@ -73,5 +74,14 @@ typedef struct s_data
 	t_file	*map_file;
 	t_map	*map;
 }	t_data;
+
+typedef struct s_game
+{
+	void	*mlx;
+	void	*mlx_win;
+	t_map	*map;
+	int		clr_ceilling;
+	int		clr_floor;
+}	t_game;
 
 #endif

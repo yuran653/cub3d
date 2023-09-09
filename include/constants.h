@@ -6,12 +6,16 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 21:42:47 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/04 18:34:58 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/10 05:34:22 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONSTANTS_H
 # define CONSTANTS_H
+
+# define NAME "Cub3D"
+# define WIDTH 1280
+# define HEIGHT 720
 
 # define SPACE_SIGN 32
 # define DELIMITER 44

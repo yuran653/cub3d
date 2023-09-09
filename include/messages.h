@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 21:41:05 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/09 22:38:55 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/10 05:13:46 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ wrong amount of values"
 more than one player"
 # define ERROR_PLAYER_INSIDE "failed to initialize the map: \
 player should be inside the map"
+# define ERROR_GAME "failed to initialize game data"
 
 #endif

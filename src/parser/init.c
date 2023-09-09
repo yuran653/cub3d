@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 15:10:58 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/06 19:16:01 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/10 04:32:26 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ t_color	*init_color(void)
 	color->r = -1;
 	color->g = -1;
 	color->b = -1;
+	color->hex = -1;
 	return (color);
 }
 

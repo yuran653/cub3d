@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:01:03 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/04 14:25:41 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/10 04:58:06 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	parse_color_value(t_data *data, t_color *color, char *value)
 			i = -1;
 		}
 	}
+	convert_to_hex(color);
 }
 
 void	define_color_value(t_data *data, char *str)

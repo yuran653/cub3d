@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:57 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/10 00:27:29 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/10 05:43:58 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define CUB3D_H
 
 # include "get_next_line.h"
+# include "parser.h"
+# include "game.h"
 # include "constants.h"
 # include "messages.h"
 # include "structs.h"
@@ -66,6 +68,7 @@ void	is_digit_space(t_data *data, char *value);
 // assign_color.c
 void	assign_color_value(t_data *data, t_color *color, char *value);
 void	set_color_value(t_data *data, int *color, char *value);
+void	convert_to_hex(t_color *color);
 
 // define_map.c
 void	define_map(t_data *data, int *i);
@@ -107,6 +110,6 @@ void	print_error_arg(char *error_arg);
 
 // --- Game ---
 // game.c
-void	game(t_data *data);
+t_game	*init_game(t_data *data);
 
 #endif

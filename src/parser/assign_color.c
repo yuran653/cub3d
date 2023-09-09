@@ -6,11 +6,16 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 13:28:03 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/04 14:21:50 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/10 04:58:01 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	convert_to_hex(t_color *color)
+{
+	color->hex = (color->r << 16) | (color->g << 8) | color->b;
+}
 
 void	set_color_value(t_data *data, int *color, char *value)
 {
