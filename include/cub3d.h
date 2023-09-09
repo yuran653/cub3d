@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:57 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/06 19:14:30 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/10 00:27:29 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@
 # include "constants.h"
 # include "messages.h"
 # include "structs.h"
-# include "../libft/libft.h"
-# include "../mini_libx/mlx.h"
+# include "libft.h"
+# include "mlx.h"
 # include <errno.h>
 # include <fcntl.h>
+# include <math.h>
 # include <stdbool.h>
 # include <stdio.h>
 # include <string.h>

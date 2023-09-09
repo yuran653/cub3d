@@ -6,7 +6,7 @@
 #    By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 19:29:24 by jgoldste          #+#    #+#              #
-#    Updated: 2023/09/06 19:15:49 by jgoldste         ###   ########.fr        #
+#    Updated: 2023/09/10 00:30:10 by jgoldste         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,9 @@ NAME			=	cub3d
 
 CC				=	gcc
 CFLAGS			=	-Wall -Werror -Wextra -g
-LIBRARIES 		=	$(MINILIBX_FLAGS) -L$(LIBFT_DIR) -L$(MINILIBX_DIR) 
+LIB_FLAGS		=	-lmlx -lm -lft
+FRAMEWORK_FLAGS	=	-framework OpenGL -framework AppKit -framework Cocoa
+LIBRARIES 		=	$(LIB_FLAGS) $(FRAMEWORK_FLAGS) -L$(LIBFT_DIR) -L$(MINILIBX_DIR)
 INCLUDES		=	-I$(HEADERS_DIR) -I$(LIBFT_HEADER) -I$(MINILIBX_HEADER)
 
 LIBFT_DIR		=	./libft/
@@ -24,7 +26,6 @@ LIBFT_HEADER	=	$(LIBFT_DIR)
 MINILIBX_DIR	=	./mini_libx/
 MINILIBX		=	$(MINILIBX_DIR)libmlx.a
 MINILIBX_HEADER	=	$(MINILIBX_DIR)
-MINILIBX_FLAGS	=	-lmlx -lm -lft -framework OpenGL -framework AppKit -framework Cocoa
 
 HEADERS_DIR		=	./include/
 HEADERS_LIST	=	cub3d.h	get_next_line.h	constants.h	messages.h	structs.h
