@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   error_exit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/18 19:17:57 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/10 17:23:46 by jgoldste         ###   ########.fr       */
+/*   Created: 2023/09/10 18:01:43 by jgoldste          #+#    #+#             */
+/*   Updated: 2023/09/10 18:26:49 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "cub3d.h"
 
-# include "get_next_line.h"
-# include "parser.h"
-# include "game.h"
-# include "utils.h"
-# include "constants.h"
-# include "messages.h"
-# include "structs.h"
-# include "libft.h"
-# include "mlx.h"
-# include <errno.h>
-# include <fcntl.h>
-# include <math.h>
-# include <stdbool.h>
-# include <stdio.h>
-# include <string.h>
+// void	error_game_exit_fail(t_game *game, char *error_msg, char *error_arg)
+// {
+// 	print_error_msg(error_msg, error_arg);
+// 	game = free_game(game);
+// 	exit (EXIT_FAILURE);
+// }
 
-#endif
+void	error_data_exit_fail(t_data *data, char *error_msg, char *error_arg)
+{
+	print_error_msg(error_msg, error_arg);
+	data = free_data(data);
+	exit (EXIT_FAILURE);
+}

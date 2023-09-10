@@ -6,7 +6,7 @@
 #    By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 19:29:24 by jgoldste          #+#    #+#              #
-#    Updated: 2023/09/10 00:30:10 by jgoldste         ###   ########.fr        #
+#    Updated: 2023/09/10 18:25:10 by jgoldste         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ MINILIBX		=	$(MINILIBX_DIR)libmlx.a
 MINILIBX_HEADER	=	$(MINILIBX_DIR)
 
 HEADERS_DIR		=	./include/
-HEADERS_LIST	=	cub3d.h	get_next_line.h	constants.h	messages.h	structs.h
+HEADERS_LIST	=	cub3d.h		parser.h	game.h		utils.h		get_next_line.h\
+					constants.h	messages.h	structs.h
 HEADERS			=	$(addprefix $(HEADERS_DIR), $(HEADERS_LIST))
 
 GNL_DIR			=	gnl/
@@ -36,19 +37,24 @@ GNL_LIST		=	get_next_line.c	get_next_line_utils.c
 GNL				=	$(addprefix $(GNL_DIR), $(GNL_LIST))
 
 PARSER_DIR		=	parser/
-PARSER_LIST		=	parse.c		init.c		read_map.c		parse_map_file.c\
+PARSER_LIST		=	parse.c				init_parser.c		read_map.c\
+					parse_map_file.c	parser_utils.c\
 					define_texture.c	define_color.c		assign_color.c\
-					define_map.c		check_map.c			check_map_utils.c\
-					free_utils.c		utils.c				error.c
+					define_map.c		check_map.c			check_map_utils.c
 PARSER			=	$(addprefix $(PARSER_DIR), $(PARSER_LIST))
 
 GAME_DIR		=	game/
-GAME_LIST		=	game.c
+GAME_LIST		=	init_game.c
 GAME			=	$(addprefix $(GAME_DIR), $(GAME_LIST))
+
+UTILS_DIR		=	utils/
+UTILS_LIST		=	utils.c		error.c		error_exit.c\
+					free_utils.c	free_data_utils.c	free_game_utils.c
+UTILS			=	$(addprefix $(UTILS_DIR), $(UTILS_LIST))
 
 SOURCES_DIR		=	./src/
 SOURCES_LIST	=	cub3d.c\
-					$(GNL)	$(PARSER)	$(GAME)
+					$(GNL) $(PARSER) $(GAME) $(UTILS)
 SOURCES			=	$(addprefix $(SOURCES_DIR), $(SOURCES_LIST))
 
 OBJECTS_DIR		=	./object/
@@ -72,6 +78,7 @@ $(NAME): $(LIBFT) $(MINILIBX) $(OBJECTS_DIR) $(OBJECTS)
 $(OBJECTS_DIR):
 	$(MKDIR) $(OBJECTS_DIR)
 	$(MKDIR) $(OBJECTS_DIR)$(GNL_DIR)
+	$(MKDIR) $(OBJECTS_DIR)$(UTILS_DIR)
 	$(MKDIR) $(OBJECTS_DIR)$(PARSER_DIR)
 	$(MKDIR) $(OBJECTS_DIR)$(GAME_DIR)
 

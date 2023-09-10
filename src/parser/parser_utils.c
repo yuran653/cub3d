@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 17:23:11 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/06 19:17:52 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/10 14:30:18 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,6 @@ int	is_empty_line(char *line)
 		}
 	}
 	return (true);
-}
-
-int	array_size(char **array)
-{
-	int	size;
-
-	size = 0;
-	if (array)
-		while (array[size])
-			size ++;
-	return (size);
 }
 
 int	check_file_ext(char *file_name, char *file_ext)

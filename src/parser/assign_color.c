@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 13:28:03 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/10 04:58:01 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/10 18:03:31 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	set_color_value(t_data *data, int *color, char *value)
 {
 	*color = ft_atoi(value);
 	if (*color < 0 || *color > 255)
-		error_msg_exit_fail(data, ERROR_COLOR_VALUE, value);
+		error_data_exit_fail(data, ERROR_COLOR_VALUE, value);
 }
 
 void	assign_color_value(t_data *data, t_color *color, char *value)

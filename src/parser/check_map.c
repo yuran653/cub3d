@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 18:20:37 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/04 19:31:23 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/10 18:03:31 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	check_set_player(t_data *data, int orient, int i, int j)
 {
 	if (data->map->player_orient != -1)
-		error_msg_exit_fail(data, ERROR_PLAYER_AMOUNT, data->map->map_array[i]);
+		error_data_exit_fail(data, ERROR_PLAYER_AMOUNT, data->map->map_array[i]);
 	if (check_symbol_inside(data, i, j))
-		error_msg_exit_fail(data, ERROR_PLAYER_INSIDE, data->map->map_array[i]);
+		error_data_exit_fail(data, ERROR_PLAYER_INSIDE, data->map->map_array[i]);
 	data->map->player_orient = orient;
 	data->map->player_x = j;
 	data->map->player_y = i;
@@ -26,7 +26,7 @@ void	check_set_player(t_data *data, int orient, int i, int j)
 void	check_map_is_closed(t_data *data, int i, int j)
 {
 	if (check_symbol_inside(data, i, j))
-		error_msg_exit_fail
+		error_data_exit_fail
 			(data, ERROR_MAP, ERROR_MAP_NOT_CLOSED);
 }
 
@@ -47,7 +47,7 @@ void	chech_map_valid_symbol(t_data *data, int i, int j)
 	else if (data->map->map_array[i][j] == P_WEST)
 		check_set_player(data, E_WEST, i, j);
 	else
-		error_msg_exit_fail(data, ERROR_MAP_SYMBOL, data->map->map_array[i]);
+		error_data_exit_fail(data, ERROR_MAP_SYMBOL, data->map->map_array[i]);
 }
 
 void	check_map_valid_data(t_data *data)
@@ -65,9 +65,9 @@ void	check_map_valid_data(t_data *data)
 		if (j > data->map->width)
 			data->map->width = j;
 		if (data->map->width < MAP_MIN_SIZE)
-			error_msg_exit_fail(data, ERROR_MAP, ERROR_MAP_SIZE);
+			error_data_exit_fail(data, ERROR_MAP, ERROR_MAP_SIZE);
 	}
 	data->map->height = i;
 	if (data->map->player_orient == -1)
-		error_msg_exit_fail(data, ERROR_MAP, ERROR_MAP_NO_PLAYER);
+		error_data_exit_fail(data, ERROR_MAP, ERROR_MAP_NO_PLAYER);
 }

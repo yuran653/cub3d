@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:22 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/10 05:11:16 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/10 18:27:34 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void	print_map_data(t_data *data)
 int	main(int argc, char **argv)
 {
 	t_data	*data;
-	t_game	*game;
+	// t_game	*game;
 
 	// ---easy_map---
 	argc = 2;
@@ -61,10 +61,10 @@ int	main(int argc, char **argv)
 	// --!parser---
 	print_map_data(data);
 	// ---game---
-	game = init_game(data);
-	if (!game)
-		return (EXIT_FAILURE);
-	data = free_data(data);
+	// game = init_game(data);
+	// if (!game)
+	// 	return (EXIT_FAILURE);
+	// data = free_data(data);
 	// --!game---
 	// --free_easy_map---
 	free(argv[1]);

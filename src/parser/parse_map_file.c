@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 14:33:22 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/06 19:17:07 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/10 18:24:37 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ void	define_color_texture(t_data *data, int *i)
 		else if (check_id_texture(str))
 			define_texture_value(data, str);
 		else
-			error_msg_exit_fail(data, ERROR_ID, str);
+			error_data_exit_fail(data, ERROR_ID, str);
 		*i += 1;
 	}
 	if (data->map_file->defined_color < DEFINED_COLOR
 		|| data->map_file->defined_texture < DEFINED_TEXTURE)
-		error_msg_exit_fail(data, ERROR_DEFINED_AMOUNT, NULL);
+		error_data_exit_fail(data, ERROR_DEFINED_AMOUNT, NULL);
 }
 
 void	parse_map_file(t_data *data)
@@ -68,5 +68,6 @@ void	parse_map_file(t_data *data)
 	i = 0;
 	define_color_texture(data, &i);
 	define_map(data, &i);
-	free_data_file(data);
+	data->map_file = free_file(data->map_file);
+	// free_data_file(data);
 }

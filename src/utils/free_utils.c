@@ -6,46 +6,20 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 12:14:09 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/06 19:16:09 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/10 18:21:09 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	free_data_color(t_data *data)
-{
-	if (data->ceilling)
-	{
-		free(data->ceilling);
-		data->ceilling = NULL;
-	}
-	if (data->floor)
-	{
-		free(data->floor);
-		data->floor = NULL;
-	}
-}
-
-void	free_data_map(t_data *data)
-{
-	if (data->map)
-	{
-		data->map->map_array = free_array(data->map->map_array);
-		free(data->map);
-		data->map = NULL;
-	}
-}
-
-void	free_data_file(t_data *data)
-{
-	if (data->map_file)
-	{
-		free(data->map_file->line);
-		data->map_file->content = free_array(data->map_file->content);
-		free(data->map_file);
-		data->map_file = NULL;
-	}
-}
+// t_game	*free_game(t_game *game)
+// {
+// 	if (game)
+// 	{
+// 		fre
+// 	}
+// 	return (NULL);
+// }
 
 t_data	*free_data(t_data *data)
 {
@@ -59,9 +33,13 @@ t_data	*free_data(t_data *data)
 		data->north_path = NULL;
 		free(data->west_path);
 		data->west_path = NULL;
-		free_data_file(data);
-		free_data_map(data);
-		free_data_color(data);
+		data->ceilling = free_color(data->ceilling);
+		data->floor = free_color(data->floor);
+		data->map_file = free_file(data->map_file);
+		data->map = free_map(data->map);
+		// free_data_file(data);
+		// free_data_map(data);
+		// free_data_color(data);
 		free(data);
 	}
 	return (NULL);

@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:01:03 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/10 04:58:06 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/10 18:03:31 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ void	is_digit_space(t_data *data, char *value)
 		j++;
 	while (value[j])
 		if (value[j++] != SPACE_SIGN)
-			error_msg_exit_fail(data, ERROR_COLOR_VALUE, value);
+			error_data_exit_fail(data, ERROR_COLOR_VALUE, value);
 }
 
 void	set_rgb_amount(t_data *data, t_color *color, char *id)
 {
 	color->rgb ++;
 	if (color->rgb >= 3)
-		error_msg_exit_fail(data, ERROR_COLOR_AMOUNT, id);
+		error_data_exit_fail(data, ERROR_COLOR_AMOUNT, id);
 }
 
 void	set_value_end(char *value, int *i)
@@ -46,7 +46,7 @@ void	parse_color_value(t_data *data, t_color *color, char *value)
 	int		i;
 
 	if (color->rgb != -1)
-		error_msg_exit_fail(data, ERROR_COLOR_DEF, value);
+		error_data_exit_fail(data, ERROR_COLOR_DEF, value);
 	id = value;
 	id[COLOR_LEN] = '\0';
 	value = &value[COLOR_LEN + 1];
