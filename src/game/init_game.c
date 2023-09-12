@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 16:10:28 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/12 17:22:16 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/12 19:13:11 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	init_mlx_data(t_game *game)
 {
-	game->mlx_ptr = mlx_init();	
+	game->mlx_ptr = mlx_init();
 	game->win_ptr = mlx_new_window(game->mlx_ptr, WIDTH, HEIGHT, NAME);
 	game->mlx_data->img = mlx_new_image(game->mlx_ptr, WIDTH, HEIGHT);
 	game->mlx_data->addr = mlx_get_data_addr(game->mlx_data->img,

@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:02:26 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/12 16:39:33 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/12 18:56:59 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ typedef struct s_map
 {
 	int		width;
 	int		height;
-	int		player_x;
-	int		player_y;
+	float	player_x;
+	float	player_y;
 	int		player_orient;
 	char	**map_array;
 }	t_map;

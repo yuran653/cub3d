@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:22 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/12 17:06:47 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/12 18:57:26 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ static void	print_map_data(t_data *data)
 			printf("[%s]\n", data->map->map_array[i]);
 		printf("--- MAP WIDTH ---> [%d]\n", data->map->width);
 		printf("--- MAP HEIGHT --> [%d]\n", data->map->height);
-		printf("--- PLAYER X ----> [%d]\n", data->map->player_x);
-		printf("--- PLAYER Y ----> [%d]\n", data->map->player_y);
+		printf("--- PLAYER X ----> [%f]\n", data->map->player_x);
+		printf("--- PLAYER Y ----> [%f]\n", data->map->player_y);
 		printf("- PLAYER ORIENT -> [%d]\n", data->map->player_orient);
 	}
 	else

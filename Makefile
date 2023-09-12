@@ -6,7 +6,7 @@
 #    By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 19:29:24 by jgoldste          #+#    #+#              #
-#    Updated: 2023/09/12 17:52:55 by jgoldste         ###   ########.fr        #
+#    Updated: 2023/09/12 19:15:31 by jgoldste         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,12 +44,13 @@ PARSER_LIST		=	parse.c				init_parser.c		read_map.c\
 PARSER			=	$(addprefix $(PARSER_DIR), $(PARSER_LIST))
 
 GAME_DIR		=	game/
-GAME_LIST		=	init_game.c		recasting.c		key_hook.c
+GAME_LIST		=	init_game.c		recasting.c		key_hook.c\
+					draw_utils.c
 GAME			=	$(addprefix $(GAME_DIR), $(GAME_LIST))
 
 UTILS_DIR		=	utils/
 UTILS_LIST		=	utils.c		error.c		error_exit.c\
-					free_utils.c	free_data_utils.c	free_game_utils.c
+					free_utils.c	free_data_utils.c
 UTILS			=	$(addprefix $(UTILS_DIR), $(UTILS_LIST))
 
 SOURCES_DIR		=	./src/
