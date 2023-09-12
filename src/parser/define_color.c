@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:01:03 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/10 18:03:31 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/13 00:50:20 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ void	is_digit_space(t_data *data, char *value)
 			error_data_exit_fail(data, ERROR_COLOR_VALUE, value);
 }
 
-void	set_rgb_amount(t_data *data, t_color *color, char *id)
+void	set_rgb_amount(t_data *data, t_color *color, char *value)
 {
 	color->rgb ++;
 	if (color->rgb >= 3)
-		error_data_exit_fail(data, ERROR_COLOR_AMOUNT, id);
+		error_data_exit_fail(data, ERROR_COLOR_AMOUNT, value);
 }
 
 void	set_value_end(char *value, int *i)
@@ -42,14 +42,11 @@ void	set_value_end(char *value, int *i)
 
 void	parse_color_value(t_data *data, t_color *color, char *value)
 {
-	char	*id;
 	int		i;
 
 	if (color->rgb != -1)
 		error_data_exit_fail(data, ERROR_COLOR_DEF, value);
-	id = value;
-	id[COLOR_LEN] = '\0';
-	value = &value[COLOR_LEN + 1];
+	value = &value[COLOR_LEN];
 	i = -1;
 	while (value[++i])
 	{
@@ -57,7 +54,7 @@ void	parse_color_value(t_data *data, t_color *color, char *value)
 			i++;
 		value = &value[i];
 		set_value_end(value, &i);
-		set_rgb_amount(data, color, id);
+		set_rgb_amount(data, color, value);
 		is_digit_space(data, value);
 		assign_color_value(data, color, value);
 		if (value [i + 1] && value [i + 1] != DELIMITER)

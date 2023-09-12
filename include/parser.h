@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 05:42:42 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/10 17:26:09 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/13 00:49:17 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	assign_texture_value(t_data *data, char **path, char *str);
 void	define_color_value(t_data *data, char *value);
 void	parse_color_value(t_data *data, t_color *color, char *value);
 void	set_value_end(char *value, int *i);
-void	set_rgb_amount(t_data *data, t_color *color, char *id);
+void	set_rgb_amount(t_data *data, t_color *color, char *value);
 void	is_digit_space(t_data *data, char *value);
 
 // assign_color.c
