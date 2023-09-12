@@ -6,7 +6,7 @@
 #    By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 19:29:24 by jgoldste          #+#    #+#              #
-#    Updated: 2023/09/10 18:25:10 by jgoldste         ###   ########.fr        #
+#    Updated: 2023/09/12 17:52:55 by jgoldste         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ MINILIBX_HEADER	=	$(MINILIBX_DIR)
 
 HEADERS_DIR		=	./include/
 HEADERS_LIST	=	cub3d.h		parser.h	game.h		utils.h		get_next_line.h\
-					constants.h	messages.h	structs.h
+					structs.h	constants.h	messages.h	keys_define.h
 HEADERS			=	$(addprefix $(HEADERS_DIR), $(HEADERS_LIST))
 
 GNL_DIR			=	gnl/
@@ -44,7 +44,7 @@ PARSER_LIST		=	parse.c				init_parser.c		read_map.c\
 PARSER			=	$(addprefix $(PARSER_DIR), $(PARSER_LIST))
 
 GAME_DIR		=	game/
-GAME_LIST		=	init_game.c
+GAME_LIST		=	init_game.c		recasting.c		key_hook.c
 GAME			=	$(addprefix $(GAME_DIR), $(GAME_LIST))
 
 UTILS_DIR		=	utils/

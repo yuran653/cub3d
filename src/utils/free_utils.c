@@ -6,20 +6,29 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 12:14:09 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/10 18:21:09 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/12 16:50:16 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-// t_game	*free_game(t_game *game)
-// {
-// 	if (game)
-// 	{
-// 		fre
-// 	}
-// 	return (NULL);
-// }
+t_game	*free_game(t_game *game)
+{
+	if (game)
+	{
+		game->data = free_data(game->data);
+		if (game->mlx_data)
+			if (game->mlx_ptr && game->mlx_data->img)
+				mlx_destroy_image(game->mlx_ptr, game->mlx_data->img);
+		if (game->mlx_ptr && game->win_ptr)
+			mlx_destroy_window(game->mlx_ptr, game->win_ptr);
+		else if (game->mlx_ptr)
+			free(game->mlx_ptr);
+		free(game->mlx_data);
+		free(game);
+	}
+	return (NULL);
+}
 
 t_data	*free_data(t_data *data)
 {
@@ -37,9 +46,6 @@ t_data	*free_data(t_data *data)
 		data->floor = free_color(data->floor);
 		data->map_file = free_file(data->map_file);
 		data->map = free_map(data->map);
-		// free_data_file(data);
-		// free_data_map(data);
-		// free_data_color(data);
 		free(data);
 	}
 	return (NULL);
