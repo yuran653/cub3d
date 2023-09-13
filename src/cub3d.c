@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:22 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/13 02:18:16 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/13 15:18:27 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,74 +45,34 @@
 // 		printf("-- MAP IS NOT DEFINED --\n");
 // }
 
-// int	main(int argc, char **argv)
-// {
-// 	t_data	*data;
-// 	t_game	*game;
+int	main(int argc, char **argv)
+{
+	t_data	*data;
+	t_game	*game;
 
 // 	// ---easy_map---
-// 	argc = 2;
-// 	argv[1] = ft_strdup("maps/subject_map.cub");
+	argc = 2;
+	argv[1] = ft_strdup("maps/subject_map.cub");
 // 	// --!easy_map---
 // 	// ---parser---
-// 	data = parse(argc, argv);
-// 	if (!data)
-// 		return (EXIT_FAILURE);
+	data = parse(argc, argv);
+	if (!data)
+		return (EXIT_FAILURE);
 // 	// --!parser---
 // 	print_map_data(data);
 // 	// ---game---
-// 	game = init_game(data);
-// 	if (!game)
-// 		return (EXIT_FAILURE);
-// 	mlx_loop_hook(game->mlx_ptr, recasting, game);
-// 	mlx_hook(game->win_ptr, 17, 0L, close_game_exit, game);
-// 	mlx_hook(game->win_ptr, 2, 1L << 0, key_hook, game);
-// 	mlx_loop(game->mlx_ptr);
+	game = init_game(data);
+	if (!game)
+		return (EXIT_FAILURE);
+	mlx_loop_hook(game->mlx_ptr, recasting, game);
+	mlx_hook(game->win_ptr, 17, 0L, close_game_exit, game);
+	mlx_hook(game->win_ptr, 2, 1L << 0, key_hook, game);
+	mlx_loop(game->mlx_ptr);
 // 	// --!game---
 // 	// --free_easy_map---
-// 	free(argv[1]);
-// 	argv[1] = NULL;
+	free(argv[1]);
+	argv[1] = NULL;
 // 	// --!free_easy_map---
-// 	game = free_game(game);
-// 	return (EXIT_SUCCESS);
-// }
-
-void	pixel_put(t_mlx *data, int x, int y, int color)
-{
-	char	*dst;
-
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
-}
-
-int draw(void *mlx, void *mlx_win, t_mlx *data)
-{
-	for (int x = 0; x < WIDTH; x++)
-	{
-		for (int y = 0; y < HEIGHT; y++)
-		{
-			if (y < HEIGHT / 2)
-				pixel_put(data, x, y, 0xFFFF00);
-			else
-				pixel_put(data, x, y, 0x0080FF);
-		}
-	}
-	mlx_put_image_to_window(mlx, mlx_win, data->img, 0, 0);
-	return (0);
-}
-
-int	main(void)
-{
-	t_game *game;
-
-	game = (t_game *)malloc(sizeof(t_game));
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, WIDTH, HEIGHT, "Hello world!");
-	data->img = mlx_new_image(mlx, WIDTH, HEIGHT);
-	data->addr = mlx_get_data_addr(data->img, &data->bits_per_pixel,
-		&data->line_length, &data->endian);
-	// mlx_loop_hook(mlx, draw, &data);
-	draw(mlx, mlx_win, data);
-	free(data);
-	mlx_loop(mlx);
+	game = free_game(game);
+	return (EXIT_SUCCESS);
 }

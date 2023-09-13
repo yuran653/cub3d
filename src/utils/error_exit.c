@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 18:01:43 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/12 16:36:08 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:31:16 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	close_game_exit(t_game *game)
 {
-	game = free_game(game);
+	game = free_game(game);;
 	exit(EXIT_SUCCESS);
 	return (0);
 }

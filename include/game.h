@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 05:42:54 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/13 01:11:24 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/13 15:10:41 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@ void	init_mlx_data(t_game *game);
 
 // recasting.c
 int		recasting(t_game *game);
+void 	draw_line(t_game *game);
 
 // draw_utils.c
-void	my_mlx_pixel_put(t_game *game, int x, int y, int color);
+void	pixel_put(t_mlx *mlx_data, int x, int y, int color);
+float	degree_to_radians(float degree);
 
 // key_hook.c
 int		key_hook(int keycode, t_game *game);
