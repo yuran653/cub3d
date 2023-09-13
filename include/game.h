@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 05:42:54 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/13 15:10:41 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/13 19:28:24 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ t_game	*init_game(t_data *data);
 void	init_mlx_data(t_game *game);
 
 // recasting.c
-int		recasting(t_game *game);
-void 	draw_line(t_game *game);
+int		raycast(t_game *game);
+// void 	draw_line(t_game *game);
 
 // draw_utils.c
 void	pixel_put(t_mlx *mlx_data, int x, int y, int color);

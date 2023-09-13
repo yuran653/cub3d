@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:22 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/13 15:18:27 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/13 17:32:12 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	main(int argc, char **argv)
 	game = init_game(data);
 	if (!game)
 		return (EXIT_FAILURE);
-	mlx_loop_hook(game->mlx_ptr, recasting, game);
+	mlx_loop_hook(game->mlx_ptr, raycast, game);
 	mlx_hook(game->win_ptr, 17, 0L, close_game_exit, game);
 	mlx_hook(game->win_ptr, 2, 1L << 0, key_hook, game);
 	mlx_loop(game->mlx_ptr);

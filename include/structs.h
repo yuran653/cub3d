@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:02:26 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/12 18:56:59 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/13 18:11:10 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ typedef struct s_map
 {
 	int		width;
 	int		height;
-	float	player_x;
-	float	player_y;
-	int		player_orient;
+	double	player_x;
+	double	player_y;
+	double	player_orient;
 	char	**map_array;
 }	t_map;
 
@@ -90,6 +90,16 @@ typedef struct s_game
 	void	*win_ptr;
 	t_mlx	*mlx_data;
 	t_data	*data;
+	int rayX;
+	int rayY;
+	double rayXd;
+	double rayYd;
+	double	rayCos;
+	double	raySin;
+	int	wall;
+	double distance;
+	double rayAngle;
+	double wallHeight;
 }	t_game;
 
 #endif

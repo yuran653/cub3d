@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 16:10:28 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/12 19:13:11 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/13 17:59:06 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ t_game	*init_game(t_data *data)
 		error_data_exit_fail(data, strerror(errno), ERROR_GAME);
 	game->mlx_ptr = NULL;
 	game->win_ptr = NULL;
+	game->data = data;
 	game->mlx_data = (t_mlx *)malloc(sizeof(t_mlx));
 	if (!game->mlx_data)
 		error_game_exit_fail(game, strerror(errno), ERROR_GAME);
