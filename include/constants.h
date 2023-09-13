@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 21:42:47 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/13 19:43:45 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/13 23:06:54 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # define HALF_HEIGHT 360 // (HEIGHT / 2)
 # define ANGLE 0 // !!! to be changed to 'player_orientation' !!!
 # define FOV 66
-# define HALF_FOV 33 // (FOV / 2)
+# define HALF_FOV 270 // (FOV / 2)
 # define INC_ANGLE 0.0515625 // (FOV / WIDTH)
 # define PRECISION 64
 

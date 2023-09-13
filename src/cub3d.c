@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:22 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/13 17:32:12 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/13 22:59:15 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	main(int argc, char **argv)
 
 // 	// ---easy_map---
 	argc = 2;
-	argv[1] = ft_strdup("maps/subject_map.cub");
+	argv[1] = ft_strdup("maps/test.cub");
 // 	// --!easy_map---
 // 	// ---parser---
 	data = parse(argc, argv);
@@ -64,10 +64,10 @@ int	main(int argc, char **argv)
 	game = init_game(data);
 	if (!game)
 		return (EXIT_FAILURE);
-	mlx_loop_hook(game->mlx_ptr, raycast, game);
-	mlx_hook(game->win_ptr, 17, 0L, close_game_exit, game);
-	mlx_hook(game->win_ptr, 2, 1L << 0, key_hook, game);
-	mlx_loop(game->mlx_ptr);
+	mlx_loop_hook(game->mlx_data->mlx_ptr, raycast, game);
+	mlx_hook(game->mlx_data->win_ptr, 17, 0L, close_game_exit, game);
+	mlx_hook(game->mlx_data->win_ptr, 2, 1L << 0, key_hook, game);
+	mlx_loop(game->mlx_data->mlx_ptr);
 // 	// --!game---
 // 	// --free_easy_map---
 	free(argv[1]);

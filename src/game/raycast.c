@@ -6,38 +6,24 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 14:42:07 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/13 19:42:33 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/13 23:09:25 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-// void	draw_line(t_game *game, int x, int y1, int y2)
-// {
-// 	// int	x;
-// 	// int	y;
-
-// 	// x = -1;
-// 	// while (++x < WIDTH)
-// 	// {
-// 	// 	y = -1;
-// 	// 	while (++y < HEIGHT)
-// 	// 	{
-// 	// 		if (y < HEIGHT / 2)
-// 	// 			pixel_put(game->mlx_data, x, y, 0xFFFF00);
-// 	// 		else
-// 	// 			pixel_put(game->mlx_data, x, y, 0x994C00);
-// 	// 	}
-// 	// }
-
-// 	while (y1 < y2 && y1 < HEIGHT)
-// 	{
-// 		if (y1 < HEIGHT / 2)
-// 			pixel_put(game->mlx_data, x, y1, 0xFFFF00);
-// 		else
-// 			pixel_put(game->mlx_data, x, y1, 0x994C00);
-// 	}
-// }
+void	draw_line(t_game *game, int x, int y1, int y2)
+{
+	if (y1 == 0)
+		while (y1++ < y2)
+			pixel_put(game->mlx_data, x, y1, game->data->ceilling->hex);
+	else if (y1 > HALF_HEIGHT)
+		while (y1++ < y2)
+			pixel_put(game->mlx_data, x, y1, game->data->floor->hex);
+	else
+		while (y1++ < y2)
+			pixel_put(game->mlx_data, x, y1, 0XFF99FF);
+}
 
 int	raycast(t_game *game)
 {
@@ -52,10 +38,7 @@ int	raycast(t_game *game)
 		game->rayYd = game->data->map->player_y;
 		game->rayCos = cos(degree_to_radians(game->rayAngle))/PRECISION;
 		game->raySin = sin(degree_to_radians(game->rayAngle))/PRECISION;
-		// printf("sin(degRad(rayAngle)) is %f \n", raySin);
-
-		// printf("worldMap[2][2] is %d\n",worldMap[0][0]);
-
+		
 		// we send vector x,y to direction x1,y1 to find a wall position ([x,y] = 1) on map
 		// in result is we know both positions and can calculate distance, can get sprite color
 		
@@ -67,7 +50,6 @@ int	raycast(t_game *game)
 			game->rayY = round(game->rayYd);
 			if (game->data->map->map_array[game->rayY][game->rayX] == '1')
 				break;
-			// printf("current rayX = %f, rayY is %f\n", rayXd, rayYd);
 		}
 
 		// Pythagoras theorem
@@ -77,18 +59,18 @@ int	raycast(t_game *game)
 		game->wallHeight = floor(HALF_HEIGHT /game->distance);
 		// Draw the line...
 
-		// draw_line(game, lineNum, 0, (int)(HALF_HEIGHT - game->wallHeight));
-		// // drawLine(lineNum, (int)(halfHeight - wallHeight), lineNum, (int)(halfHeight + wallHeight));
-		// draw_line(game, lineNum, (int)(HALF_HEIGHT + game->wallHeight), HEIGHT);
-		printf("WALL HEIGHT [%lf]\n", game->wallHeight);
+		draw_line(game, lineNum, 0, (int)(HALF_HEIGHT - game->wallHeight));
+		draw_line(game,lineNum,
+			(int)(HALF_HEIGHT - game->wallHeight),
+			(int)(HALF_HEIGHT + game->wallHeight));
+		draw_line(game, lineNum, (int)(HALF_HEIGHT + game->wallHeight), HEIGHT);
 		// Increment angle
 		game->rayAngle += INC_ANGLE;
 
 		lineNum++;
 	}
 
-	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
+	mlx_put_image_to_window(game->mlx_data->mlx_ptr, game->mlx_data->win_ptr,
 		game->mlx_data->img, 0, 0);
-	close_game_exit(game);
 	return (0);
 }

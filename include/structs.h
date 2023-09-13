@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:02:26 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/13 18:11:10 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/13 22:44:09 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,10 @@ typedef struct s_data
 	t_map	*map;
 }	t_data;
 
-typedef struct s_mlx {
+typedef struct s_mlx
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
@@ -86,17 +89,14 @@ typedef struct s_mlx {
 
 typedef struct s_game
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	t_mlx	*mlx_data;
 	t_data	*data;
+	t_mlx	*mlx_data;
 	int rayX;
 	int rayY;
 	double rayXd;
 	double rayYd;
 	double	rayCos;
 	double	raySin;
-	int	wall;
 	double distance;
 	double rayAngle;
 	double wallHeight;

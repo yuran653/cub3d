@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 12:14:09 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/12 16:50:16 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/13 21:09:01 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,15 @@ t_game	*free_game(t_game *game)
 	{
 		game->data = free_data(game->data);
 		if (game->mlx_data)
-			if (game->mlx_ptr && game->mlx_data->img)
-				mlx_destroy_image(game->mlx_ptr, game->mlx_data->img);
-		if (game->mlx_ptr && game->win_ptr)
-			mlx_destroy_window(game->mlx_ptr, game->win_ptr);
-		else if (game->mlx_ptr)
-			free(game->mlx_ptr);
-		free(game->mlx_data);
+		{
+			if (game->mlx_data->mlx_ptr && game->mlx_data->img)
+				mlx_destroy_image(game->mlx_data->mlx_ptr, game->mlx_data->img);
+			if (game->mlx_data->mlx_ptr && game->mlx_data->win_ptr)
+				mlx_destroy_window(game->mlx_data->mlx_ptr, game->mlx_data->win_ptr);
+			else if (game->mlx_data->mlx_ptr)
+				free(game->mlx_data->mlx_ptr);
+			free(game->mlx_data);
+		}
 		free(game);
 	}
 	return (NULL);
