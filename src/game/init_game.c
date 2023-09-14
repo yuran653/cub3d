@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 16:10:28 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/14 16:37:45 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/14 17:51:28 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void	init_values(t_game *game)
 	game->values->half_scr_width = WIDTH / 2;
 	game->values->half_src_height = HEIGHT / 2;
 	game->values->half_fov = FOV / 2;
-	game->values->inc_angle = FOV / WIDTH;
+	game->values->inc_angle = (double)FOV / (double)WIDTH;
+	game->values->precision = (double)PRECISION;
 }
 
 t_game	*init_game(t_data *data)

@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:02:26 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/14 16:23:42 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/14 19:07:24 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ typedef struct s_values
 	int		half_src_height;
 	int		half_fov;
 	double	inc_angle;
+	double	precision;
 }	t_values;
 
 typedef struct s_game
@@ -99,15 +100,16 @@ typedef struct s_game
 	t_data		*data;
 	t_values	*values;
 	t_mlx		*mlx_data;
-	int rayX;
-	int rayY;
-	double rayXd;
-	double rayYd;
-	double	rayCos;
-	double	raySin;
-	double distance;
-	double rayAngle;
-	double wallHeight;
+	int			lineNum;
+	int			x;
+	int			y;
+	double		rayXd;
+	double		rayYd;
+	double		rayCos;
+	double		raySin;
+	double		distance;
+	double		rayAngle;
+	int			wallHeight;
 }	t_game;
 
 #endif
