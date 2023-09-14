@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 05:42:54 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/13 19:28:24 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/14 16:33:41 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 // init_game.c
 t_game	*init_game(t_data *data);
+void	init_values(t_game *game);
 void	init_mlx_data(t_game *game);
 
 // recasting.c

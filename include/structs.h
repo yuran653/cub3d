@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:02:26 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/13 22:44:09 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/14 16:23:42 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ enum e_define_status
 
 enum e_player_orient
 {
-	E_NORTH = 1,
-	E_SOUTH = 2,
-	E_EAST = 3,
-	E_WEST = 4
+	E_NORTH = 270,
+	E_SOUTH = 90,
+	E_EAST = 0,
+	E_WEST = 180
 };
 
 typedef struct s_color
@@ -86,11 +86,19 @@ typedef struct s_mlx
 	int		endian;
 }	t_mlx;
 
+typedef struct s_values
+{
+	int		half_scr_width;
+	int		half_src_height;
+	int		half_fov;
+	double	inc_angle;
+}	t_values;
 
 typedef struct s_game
 {
-	t_data	*data;
-	t_mlx	*mlx_data;
+	t_data		*data;
+	t_values	*values;
+	t_mlx		*mlx_data;
 	int rayX;
 	int rayY;
 	double rayXd;

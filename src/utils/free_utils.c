@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 12:14:09 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/13 21:09:01 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/14 16:38:54 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@ t_game	*free_game(t_game *game)
 {
 	if (game)
 	{
-		game->data = free_data(game->data);
+		if (game->data)
+			game->data = free_data(game->data);
+		if (game->values)
+			free(game->values);
 		if (game->mlx_data)
 		{
 			if (game->mlx_data->mlx_ptr && game->mlx_data->img)

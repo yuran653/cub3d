@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 21:42:47 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/13 23:06:54 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/14 16:17:23 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,10 @@
 
 # define NAME "Cub3D"
 # define WIDTH 1280
-# define HALF_WIDTH 640 // (WIDTH / 2)
 # define HEIGHT 720
-# define HALF_HEIGHT 360 // (HEIGHT / 2)
 # define ANGLE 0 // !!! to be changed to 'player_orientation' !!!
-# define FOV 66
-# define HALF_FOV 270 // (FOV / 2)
-# define INC_ANGLE 0.0515625 // (FOV / WIDTH)
-# define PRECISION 64
+# define FOV 90
+# define PRECISION 100
 
 # define SPACE_SIGN 32
 # define DELIMITER 44
