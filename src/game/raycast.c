@@ -6,30 +6,37 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 14:42:07 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/15 15:09:19 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/15 17:13:24 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	put_line(t_game *game, int y1, int y2, int color)
-{
-	while (y1++ < y2)
-		pixel_put(game->mlx_data, game->lineNum, y1, color);
-}
+// static void	put_line(t_game *game, int y1, int y2, int color)
+// {
+// 	if (game->lineNum == 0)
+// 		printf("POINT[-4-] -> y1==[%d] -> y2==[%d]\n", y1, y2);
+// 	while (y1++ < y2)
+// 		pixel_put(game->mlx_data, game->lineNum, y1, color);
+// 	// printf("POINT[-5-]\n");
+	
+// }
 
-static void	draw_line(t_game *game)
-{
-	put_line(game, 0, game->values->half_src_height - game->wallHeight,
-		game->data->ceilling->hex);
-	put_line(game, game->values->half_src_height - game->wallHeight,
-		game->values->half_src_height + game->wallHeight, 0XFF99FF);
-	put_line(game, game->values->half_src_height + game->wallHeight,
-		HEIGHT, game->data->floor->hex);
-}
+// static void	draw_line(t_game *game)
+// {
+// 	// printf("POINT[-3-]\n");
+// 	put_line(game, 0, game->values->half_src_height - game->wallHeight,
+// 		game->data->ceilling->hex);
+// 	put_line(game, game->values->half_src_height - game->wallHeight,
+// 		game->values->half_src_height + game->wallHeight, 0XFF99FF);
+// 	put_line(game, game->values->half_src_height + game->wallHeight,
+// 		HEIGHT, game->data->floor->hex);
+// 	// printf("POINT[-END-]\n");
+// }
 
 static void	define_wall_position(t_game *game)
 {
+	// printf("POINT[-2-]\n");
 	while (true)
 	{
 		game->rayXd += game->rayCos;
@@ -47,7 +54,7 @@ int	raycast(t_game *game)
 {
 	game->rayAngle = game->data->map->player_orient - game->values->half_fov;
 	game->lineNum = 0;
-	while (game->lineNum <= WIDTH)
+	while (game->lineNum < WIDTH)
 	{
 		game->rayXd = game->data->map->player_x;
 		game->rayYd = game->data->map->player_y;
@@ -60,7 +67,9 @@ int	raycast(t_game *game)
 				+ pow(game->data->map->player_y - game->rayYd, 2));
 		game->wallHeight = floor(game->values->half_src_height
 				/ game->distance);
-		draw_line(game);
+		if (game->lineNum == 0)
+			printf("POINT[-1-] -> lineNum==[%d]\n", game->lineNum);
+		// draw_line(game);
 		game->rayAngle += game->values->inc_angle;
 		game->lineNum++;
 	}
