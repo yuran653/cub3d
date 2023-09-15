@@ -6,26 +6,30 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 15:10:58 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/16 02:47:09 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/16 06:07:32 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_texture *init_texture(void)
+t_texture	*init_texture(void)
 {
 	t_texture	*texture;
 	int			i;
 
 	texture = (t_texture *)malloc(sizeof (t_texture) * TEXTURE_AMOUNT);
 	if (!texture)
-		return (error_msg_return_null(strerror(errno), NULL));
+		return (NULL);
 	i = 0;
 	while (i < TEXTURE_AMOUNT)
 	{
-		texture[i].img = NULL;
+		texture[i].img_ptr = NULL;
+		texture[i].addr = NULL;
 		texture[i].width = -1;
 		texture[i].height = -1;
+		texture[i].bits_per_pixel = -1;
+		texture[i].line_length = -1;
+		texture[i].endian = -1;
 		i++;
 	}
 	return (texture);
@@ -37,7 +41,7 @@ t_color	*init_color(void)
 
 	color = (t_color *)malloc(sizeof(t_color));
 	if (!color)
-		return (error_msg_return_null(strerror(errno), NULL));
+		return (NULL);
 	color->rgb = -1;
 	color->r = -1;
 	color->g = -1;
@@ -51,7 +55,7 @@ t_map	*init_map(void)
 
 	map = (t_map *)malloc(sizeof(t_map));
 	if (!map)
-		return (error_msg_return_null(strerror(errno), NULL));
+		return (NULL);
 	map->width = -1;
 	map->height = -1;
 	map->hex_ceilling = -1;
@@ -73,7 +77,7 @@ t_file	*init_file(void)
 
 	file = (t_file *)malloc(sizeof(t_file));
 	if (!file)
-		return (error_msg_return_null(strerror(errno), NULL));
+		return (NULL);
 	file->fd = -1;
 	file->defined_color = DEFINED_NONE;
 	file->defined_texture = DEFINED_NONE;
@@ -88,7 +92,7 @@ t_data	*init_data(void)
 
 	data = (t_data *)malloc(sizeof(t_data));
 	if (!data)
-		return (error_msg_return_null(strerror(errno), NULL));
+		return (NULL);
 	data->ceilling = init_color();
 	data->floor = init_color();
 	data->map_file = init_file();

@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:22 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/16 02:45:57 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/16 04:37:14 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	main(int argc, char **argv)
 // 	// --!parser---
 // 	// ---game---
 	game = init_game(map);
+	// game = free_game(game); // !!! LEAKS !!!
 	if (!game)
 		return (EXIT_FAILURE);
 	mlx_loop_hook(game->mlx_data->mlx_ptr, raycast, game);

@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 17:28:02 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/16 01:15:50 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/16 06:08:37 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_map	*free_map(t_map *map)
 	return (NULL);
 }
 
-t_file *free_file(t_file *file)
+t_file	*free_file(t_file *file)
 {
 	if (file)
 	{

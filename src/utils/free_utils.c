@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 12:14:09 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/16 02:30:43 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/16 06:08:58 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ t_game	*free_game(t_game *game)
 {
 	if (game)
 	{
-		// if (game->data)
-		// 	game->data = free_data(game->data);
 		if (game->map)
 			game->map = free_map(game->map);
 		if (game->values)
@@ -27,7 +25,8 @@ t_game	*free_game(t_game *game)
 			if (game->mlx_data->mlx_ptr && game->mlx_data->img)
 				mlx_destroy_image(game->mlx_data->mlx_ptr, game->mlx_data->img);
 			if (game->mlx_data->mlx_ptr && game->mlx_data->win_ptr)
-				mlx_destroy_window(game->mlx_data->mlx_ptr, game->mlx_data->win_ptr);
+				mlx_destroy_window(game->mlx_data->mlx_ptr,
+					game->mlx_data->win_ptr);
 			else if (game->mlx_data->mlx_ptr)
 				free(game->mlx_data->mlx_ptr);
 			free(game->mlx_data);
@@ -41,14 +40,6 @@ t_data	*free_data(t_data *data)
 {
 	if (data)
 	{
-		// free(data->north_path);
-		// data->north_path = NULL;
-		// free(data->south_path);
-		// data->south_path = NULL;
-		// free(data->east_path);
-		// data->north_path = NULL;
-		// free(data->west_path);
-		// data->west_path = NULL;
 		data->ceilling = free_color(data->ceilling);
 		data->floor = free_color(data->floor);
 		data->map_file = free_file(data->map_file);

@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 05:42:54 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/16 02:53:39 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/16 04:27:08 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 t_game	*init_game(t_map *map);
 void	init_values(t_game *game);
 void	init_mlx_data(t_game *game);
+void	open_texture(t_game *game);
 
 // raycast.c
 int		raycast(t_game *game);

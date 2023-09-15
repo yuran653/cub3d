@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 18:20:37 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/14 16:23:55 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/16 06:07:15 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 void	check_set_player(t_data *data, int orient, int i, int j)
 {
 	if (data->map->player_orient != -1)
-		error_data_exit_fail(data, ERROR_PLAYER_AMOUNT, data->map->map_array[i]);
+		error_data_exit_fail(data, ERROR_PLAYER_AMOUNT,
+			data->map->map_array[i]);
 	if (check_symbol_inside(data, i, j))
-		error_data_exit_fail(data, ERROR_PLAYER_INSIDE, data->map->map_array[i]);
+		error_data_exit_fail(data, ERROR_PLAYER_INSIDE,
+			data->map->map_array[i]);
 	data->map->player_orient = orient;
 	data->map->player_x = j;
 	data->map->player_y = i;

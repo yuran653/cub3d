@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 21:42:47 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/16 03:02:47 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/16 04:15:19 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 # define NAME "Cub3D"
 # define WIDTH 1280
 # define HEIGHT 720
-# define FOV 90
-# define PRECISION 100
+# define FOV 66
+# define PRECISION 128
+# define TURN_SPEED 16
 
 # define SPACE_SIGN 32
 # define DELIMITER 44

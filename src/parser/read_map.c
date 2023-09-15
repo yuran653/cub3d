@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 13:00:06 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/04 14:24:55 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/16 03:42:03 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	error_push_back(t_data *data, int errno_malloc)
 	close_fd(data->map_file->fd);
 	free(data->map_file->line);
 	data->map_file->line = NULL;
-	return (error_msg_return_1(strerror(errno_malloc), NULL));
+	return (error_msg_return_1(strerror(errno_malloc), ERROR_READ));
 }
 
 char	**push_back(char **array, char *line)
@@ -46,7 +46,7 @@ int	read_line_error(t_data *data)
 	close_fd(data->map_file->fd);
 	data->map_file->content = free_array(data->map_file->content);
 	if (errno == ENOMEM || errno == EAGAIN || errno == EINVAL)
-		return (error_msg_return_1(strerror(errno), NULL));
+		return (error_msg_return_1(strerror(errno), ERROR_READ));
 	return (error_msg_return_1(EMPTY_FILE, NULL));
 }
 

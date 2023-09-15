@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:02:26 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/16 03:01:59 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/16 06:16:14 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,31 +65,35 @@ typedef struct s_values
 
 typedef struct s_texture
 {
-	void	*img;
+	void	*img_ptr;
+	void	*addr;
 	int		width;
 	int		height;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
 }	t_texture;
 
 typedef struct s_map
 {
-	int			width;
-	int			height;
+	int			width; // количество символов в строке карты
+	int			height; // количество строк в карте
 	int			hex_ceilling;
 	int			hex_floor;
-	double		player_x;
-	double		player_y;
-	double		player_orient;
+	double		player_x; // позиция камеры по X
+	double		player_y; // позиция камеры по Y
+	double		player_orient; // направление камеры
 	char		**map_array;
 	char		**texture_path;
 	t_texture	*texture;
 }	t_map;
 
-typedef struct s_game
+typedef struct s_game // теперь все в этой структуре
 {
 	t_map		*map;
 	t_values	*values;
 	t_mlx		*mlx_data;
-	int			line_num;
+	int			line_num; // норминет требует только маленькие буквы в названиях переменных
 	int			x;
 	int			y;
 	double		ray_x;

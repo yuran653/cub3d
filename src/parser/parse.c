@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:07:10 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/16 02:46:43 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/16 03:44:30 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_map	*parse(int argc, char **argv)
 		return (NULL);
 	data = init_data();
 	if (!data)
-		return (error_msg_return_null(strerror(errno), NULL));
+		return (error_msg_return_null(strerror(errno), ERROR_READ));
 	if (read_map(argv[1], data))
 		return ((void *)free_data(data));
 	parse_map_file(data);
