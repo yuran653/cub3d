@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 14:42:07 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/14 19:27:17 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/15 15:09:19 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ static void	define_wall_position(t_game *game)
 		game->x = round(game->rayXd);
 		game->y = round(game->rayYd);
 		if (game->data->map->map_array[game->y][game->x] == '1'
-			|| game->x >= game->data->map->width
-				|| game->y >= game->data->map->height)
+			|| game->x > game->data->map->width
+				|| game->y > game->data->map->height)
 			break ;
 	}
 }
