@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.h                                             :+:      :+:    :+:   */
+/*   init_array.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/10 05:42:54 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/16 02:53:39 by jgoldste         ###   ########.fr       */
+/*   Created: 2023/09/16 00:10:36 by jgoldste          #+#    #+#             */
+/*   Updated: 2023/09/16 00:10:55 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GAME_H
-# define GAME_H
+#include "cub3d.h"
 
-# include "structs.h"
+char	**init_array_null(int size)
+{
+	char	**array;
+	int		i;
 
-// init_game.c
-t_game	*init_game(t_map *map);
-void	init_values(t_game *game);
-void	init_mlx_data(t_game *game);
-
-// raycast.c
-int		raycast(t_game *game);
-
-// draw_utils.c
-void	pixel_put(t_mlx *mlx_data, int x, int y, int color);
-float	degree_to_radians(float degree);
-
-// key_hook.c
-int		key_hook(int keycode, t_game *game);
-
-#endif
+	array = (char **)malloc(sizeof(char *) * (size + 1));
+	if (!array)
+		return (NULL);
+	i = 0;
+	while (i <= size)
+		array[i++] = NULL;
+	return (array);
+}

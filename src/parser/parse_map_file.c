@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 14:33:22 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/10 18:24:37 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/16 02:50:30 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,8 @@ void	parse_map_file(t_data *data)
 
 	i = 0;
 	define_color_texture(data, &i);
+	data->map->hex_ceilling = data->ceilling->hex;
+	data->map->hex_floor = data->floor->hex;
 	define_map(data, &i);
 	data->map_file = free_file(data->map_file);
-	// free_data_file(data);
 }

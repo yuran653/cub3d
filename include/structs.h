@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:02:26 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/15 19:21:57 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/16 03:01:59 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,45 +35,13 @@ enum e_player_orient
 	E_WEST = 180
 };
 
-typedef struct s_color
+enum e_texture
 {
-	int	rgb;
-	int	r;
-	int	g;
-	int	b;
-	int	hex;
-}	t_color;
-
-typedef struct s_map
-{
-	int		width;
-	int		height;
-	double	player_x;
-	double	player_y;
-	double	player_orient;
-	char	**map_array;
-}	t_map;
-
-typedef struct s_file
-{
-	int		fd;
-	int		defined_color;
-	int		defined_texture;
-	char	*line;
-	char	**content;
-}	t_file;
-
-typedef struct s_data
-{
-	char	*north_path;
-	char	*south_path;
-	char	*east_path;
-	char	*west_path;
-	t_color	*ceilling;
-	t_color	*floor;
-	t_file	*map_file;
-	t_map	*map;
-}	t_data;
+	T_NORTH,
+	T_SOUTH,
+	T_EAST,
+	T_WEST
+};
 
 typedef struct s_mlx
 {
@@ -95,21 +63,68 @@ typedef struct s_values
 	double	precision;
 }	t_values;
 
+typedef struct s_texture
+{
+	void	*img;
+	int		width;
+	int		height;
+}	t_texture;
+
+typedef struct s_map
+{
+	int			width;
+	int			height;
+	int			hex_ceilling;
+	int			hex_floor;
+	double		player_x;
+	double		player_y;
+	double		player_orient;
+	char		**map_array;
+	char		**texture_path;
+	t_texture	*texture;
+}	t_map;
+
 typedef struct s_game
 {
-	t_data		*data;
+	t_map		*map;
 	t_values	*values;
 	t_mlx		*mlx_data;
-	int			lineNum;
+	int			line_num;
 	int			x;
 	int			y;
-	double		rayXd;
-	double		rayYd;
-	double		rayCos;
-	double		raySin;
+	double		ray_x;
+	double		ray_y;
+	double		ray_cos;
+	double		ray_sin;
 	double		distance;
-	double		rayAngle;
-	int			wallHeight;
+	double		ray_angle;
+	int			wall_height;
 }	t_game;
+
+typedef struct s_file
+{
+	int		fd;
+	int		defined_color;
+	int		defined_texture;
+	char	*line;
+	char	**content;
+}	t_file;
+
+typedef struct s_color
+{
+	int	rgb;
+	int	r;
+	int	g;
+	int	b;
+	int	hex;
+}	t_color;
+
+typedef struct s_data
+{
+	t_color	*ceilling;
+	t_color	*floor;
+	t_file	*map_file;
+	t_map	*map;
+}	t_data;
 
 #endif

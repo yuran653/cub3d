@@ -6,7 +6,7 @@
 #    By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 19:29:24 by jgoldste          #+#    #+#              #
-#    Updated: 2023/09/13 16:03:24 by jgoldste         ###   ########.fr        #
+#    Updated: 2023/09/16 00:11:22 by jgoldste         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,8 +37,8 @@ GNL_LIST		=	get_next_line.c	get_next_line_utils.c
 GNL				=	$(addprefix $(GNL_DIR), $(GNL_LIST))
 
 PARSER_DIR		=	parser/
-PARSER_LIST		=	parse.c				init_parser.c		read_map.c\
-					parse_map_file.c	parser_utils.c\
+PARSER_LIST		=	parse.c				init_parser.c		init_array.c\
+					read_map.c			parse_map_file.c	parser_utils.c\
 					define_texture.c	define_color.c		assign_color.c\
 					define_map.c		check_map.c			check_map_utils.c
 PARSER			=	$(addprefix $(PARSER_DIR), $(PARSER_LIST))

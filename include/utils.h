@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 17:22:25 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/13 14:52:40 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/16 02:38:22 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	print_error_arg(char *error_arg);
 
 // error_exit.c
 void	error_data_exit_fail(t_data *data, char *error_msg, char *error_arg);
+void	error_map_exit_fail(t_map *map, char *error_msg, char *error_arg);
 void	error_game_exit_fail(t_game *game, char *error_msg, char *error_arg);
 int		close_game_exit(t_game *game);
 

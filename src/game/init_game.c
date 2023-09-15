@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 16:10:28 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/14 17:51:28 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/16 02:54:04 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,14 @@ void	init_values(t_game *game)
 	game->values->precision = (double)PRECISION;
 }
 
-t_game	*init_game(t_data *data)
+t_game	*init_game(t_map *map)
 {
 	t_game	*game;
 
 	game = (t_game *)malloc(sizeof(t_game));
 	if (!game)
-		error_data_exit_fail(data, strerror(errno), ERROR_GAME);
-	game->data = data;
+		error_map_exit_fail(map, strerror(errno), ERROR_GAME);
+	game->map = map;
 	game->values = NULL;
 	game->mlx_data = NULL;
 	init_values(game);

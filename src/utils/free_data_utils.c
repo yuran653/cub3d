@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 17:28:02 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/12 15:09:02 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/16 01:15:50 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ t_map	*free_map(t_map *map)
 	{
 		if (map->map_array)
 			map->map_array = free_array(map->map_array);
+		if (map->texture_path)
+			map->texture_path = free_array(map->texture_path);
+		if (map->texture)
+			free(map->texture);
 		free(map);
 	}
 	return (NULL);
