@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 14:42:07 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/16 04:21:04 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/16 17:44:17 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ static void	put_line(t_game *game, int y1, int y2, int color)
 
 static void	draw_line(t_game *game)
 {
-	put_line(game, 0, game->values->half_src_height - game->wall_height,
-		game->map->hex_ceilling);
-	put_line(game, game->values->half_src_height - game->wall_height,
-		game->values->half_src_height + game->wall_height, 0XFF99FF);
-	put_line(game, game->values->half_src_height + game->wall_height,
-		HEIGHT, game->map->hex_floor);
+	int	wall_top;
+	int	wall_bottom;
+
+	wall_top = game->values->half_src_height - game->wall_height;
+	wall_bottom = game->values->half_src_height + game->wall_height;
+	put_line(game, 0, wall_top, game->map->hex_ceilling);
+	put_line(game, wall_top, wall_bottom, extract_texture_color(game));
+	put_line(game, wall_bottom, HEIGHT, game->map->hex_floor);
 }
 
 static void	define_wall_position(t_game *game)
@@ -42,9 +44,18 @@ static void	define_wall_position(t_game *game)
 	}
 }
 
+static void	correct_ray_angle_value(t_game *game)
+{
+	if (game->ray_angle < 0)
+		game->ray_angle += 360;
+	else if (game->ray_angle > 360)
+		game->ray_angle -= 360;
+}
+
 int	raycast(t_game *game)
 {
 	game->ray_angle = game->map->player_orient - game->values->half_fov;
+	correct_ray_angle_value(game);
 	game->line_num = 0;
 	while (game->line_num < WIDTH)
 	{
@@ -61,9 +72,9 @@ int	raycast(t_game *game)
 				/ game->distance);
 		draw_line(game);
 		game->ray_angle += game->values->inc_angle;
+		correct_ray_angle_value(game);
 		game->line_num++;
 	}
-	// close_game_exit(game);
 	mlx_clear_window(game->mlx_data->mlx_ptr, game->mlx_data->win_ptr);
 	mlx_put_image_to_window(game->mlx_data->mlx_ptr, game->mlx_data->win_ptr,
 		game->mlx_data->img, 0, 0);

@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 05:42:54 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/16 04:27:08 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/16 17:12:12 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ void	open_texture(t_game *game);
 
 // raycast.c
 int		raycast(t_game *game);
+
+// extract_texture_color.c
+int	extract_texture_color(t_game *game);
 
 // draw_utils.c
 void	pixel_put(t_mlx *mlx_data, int x, int y, int color);

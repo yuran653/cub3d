@@ -6,7 +6,7 @@
 #    By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 19:29:24 by jgoldste          #+#    #+#              #
-#    Updated: 2023/09/16 00:11:22 by jgoldste         ###   ########.fr        #
+#    Updated: 2023/09/16 15:19:37 by jgoldste         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ PARSER			=	$(addprefix $(PARSER_DIR), $(PARSER_LIST))
 
 GAME_DIR		=	game/
 GAME_LIST		=	init_game.c		raycast.c		key_hook.c\
-					draw_utils.c
+					extract_texture_color.c			draw_utils.c
 GAME			=	$(addprefix $(GAME_DIR), $(GAME_LIST))
 
 UTILS_DIR		=	utils/

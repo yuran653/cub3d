@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 16:10:28 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/16 06:05:30 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/16 14:50:31 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,6 @@ void	open_texture(t_game *game)
 		if (!game->map->texture[i].addr)
 			error_game_exit_fail(game, strerror(errno), ERROR_TEXTURE); // !!! LEAKS !!!
 	}
-	i = -1;
-	while (++i < TEXTURE_AMOUNT)
-		printf("ADDRESS[%p]->IMG[%p]->WIDTH[%d]->HEIGHT[%d]->BBP[%d]->LINE_LEN[%d]->ENDIAN[%d]\n",
-			game->map->texture[i].addr,
-			game->map->texture[i].img_ptr,
-			game->map->texture[i].width, game->map->texture[i].height,
-			game->map->texture[i].bits_per_pixel, game->map->texture[i].line_length,
-			game->map->texture[i].endian);
 }
 
 // char	*mlx_get_data_addr(void *img_ptr, int *bits_per_pixel, int *size_line, int *endian);
