@@ -14,8 +14,8 @@
 
 int	extract_texture_color(t_game *game)
 {
-	if (game->ray_angle < 0 || game->ray_angle > 360)
-		error_game_exit_fail(game, strerror(EOVERFLOW),
-			ft_itoa(round(game->ray_angle)));
+	if (game->x > 0 && game->y < round(game->map->player_y)
+		&& game->map->map_array[game->y + 1][game->x] == M_SPACE)
+		return (0xffffff);
 	return (0x0);
 }
