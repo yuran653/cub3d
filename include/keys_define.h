@@ -16,7 +16,7 @@
 # define ESCAPE 53
 # define LEFT 123
 # define RIGHT 124
-# define UP 126
-# define DOWN 125
+# define UP 13
+# define DOWN 1
 
 #endif
