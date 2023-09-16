@@ -17,11 +17,21 @@ void move_player(t_game *game, int direction)
 {
 	double radians;
 	double	step_size;
+	double new_x;
+	double new_y;
 
 	step_size = 0.2;
 	radians = degree_to_radians(game->map->player_orient);
-	game->map->player_x += cos(radians) * direction * step_size;
-	game->map->player_y += sin(radians) * direction * step_size;
+	new_x = game->map->player_x + cos(radians) * direction * step_size;
+	new_y = game->map->player_y + sin(radians) * direction * step_size;
+	// если след позиция не стена то идем
+	// можно добавить / изменить округление чтобы не приближаться к стене
+	// или добавить фикс отступ от стены в формулу выше
+	if (game->map->map_array[(int)round(new_y)][(int)round(new_x)] != '1')
+	{
+		game->map->player_x = new_x;
+		game->map->player_y = new_y;
+	}
 }
 
 int	key_hook(int keycode, t_game *game)
