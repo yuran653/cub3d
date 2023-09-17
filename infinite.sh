@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BINARY="/path/to/binary"
+BINARY="./cub3d"
 
 COUNTER=0
 
@@ -16,12 +16,12 @@ while true; do
   # Check for segfault
   if [ $RC -eq 139 ]; then
     echo "Segmenation fault occurred - stopping loop" 
-    break
+    # break
 
   # Check for any failure exit code
   elif [ $RC -ne 0 ]; then
     echo "Binary failed with code $RC - stopping loop"
-    break
+    # break
 
   fi
 

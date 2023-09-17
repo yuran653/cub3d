@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 14:42:07 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/17 10:11:08 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/17 16:31:05 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,18 @@ static void	define_wall_position(t_game *game)
 		game->ray_y += game->ray_sin;
 		game->x = round(game->ray_x);
 		game->y = round(game->ray_y);
+		if (game->x < 0)
+			game->x = 0;
+		else if (game->x >= game->map->width)
+			game->x = game->map->width - 1;
+		if (game->y < 0)
+			game->y = 0;
+		else if (game->y >= game->map->height)
+			game->y = game->map->height - 1;		
 		if (game->map->map_array[game->y][game->x] == M_WALL
-			|| game->x > game->map->width || game->y > game->map->height)
+			|| game->map->map_array[game->y][game->x] == SPACE_SIGN
+			|| game->map->map_array[game->y][game->x] == NEW_LINE_SIGN
+			|| game->map->map_array[game->y][game->x] == END_LINE_SIGN)
 			break ;
 	}
 }
