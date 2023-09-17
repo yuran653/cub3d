@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:22 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/16 04:37:14 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/17 10:23:03 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 
 // 	// ---easy_map---
 	argc = 2;
-	argv[1] = ft_strdup("maps/subject_map.cub");
+	argv[1] = ft_strdup("maps/for_color.cub");
 // 	// --!easy_map---
 // 	// ---parser---
 	map = parse(argc, argv);
