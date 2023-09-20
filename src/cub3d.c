@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
+/*   By: dlariono <dlariono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:22 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/17 16:32:23 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/20 18:15:38 by dlariono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int argc, char **argv)
 	mlx_hook(game->mlx_data->win_ptr, 2, 1L << 0, key_hook, game);
 	mlx_loop(game->mlx_data->mlx_ptr);
 // 	// --!game---
-// 	// --free_easy_map---
+// 	// --free_easy_map-
 	free(argv[1]);
 	argv[1] = NULL;
 // 	// --!free_easy_map---
