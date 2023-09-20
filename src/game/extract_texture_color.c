@@ -19,6 +19,20 @@ int	extract_texture_color(t_game *game)
 	int east = 0xffff99;
 	int west = 0x99ffff;
 	int angle;
+	int img_pixel;
+	int x = 10;
+	int y = 5;
+
+ 	img_pixel= ((int *)game->map->texture[0].addr)[y * game->map->texture[0].width + x];
+
+	int red = (img_pixel >> 16) & 0xFF;
+	int green = (img_pixel >> 8) & 0xFF;
+	int blue = img_pixel & 0xFF;
+	// подменяем цветом с позиции x,y текстуры
+	west = (red << 16) | (green << 8) | blue;
+
+	// printf("test color %x\n", north);
+	// printf("test color %x\n", test_color);
 
 	angle = game->ray_angle + game->values->half_fov;
 	if (angle > 360)
@@ -26,7 +40,7 @@ int	extract_texture_color(t_game *game)
 	else if (angle < 0)
 		angle += 360;
 	if (angle >= 0 && angle <= 90)
-		return (north);	
+		return (north);
 	else if (angle > 90 && angle < 180)
 		return(east);
 	else if (angle >= 180 && angle <= 270)
