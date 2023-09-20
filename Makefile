@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+         #
+#    By: dlariono <dlariono@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 19:29:24 by jgoldste          #+#    #+#              #
-#    Updated: 2023/09/16 15:19:37 by jgoldste         ###   ########.fr        #
+#    Updated: 2023/09/20 18:39:35 by dlariono         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

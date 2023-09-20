@@ -6,7 +6,7 @@
 /*   By: dlariono <dlariono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:22 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/20 18:15:38 by dlariono         ###   ########.fr       */
+/*   Updated: 2023/09/20 18:40:15 by dlariono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	main(int argc, char **argv)
 	mlx_loop_hook(game->mlx_data->mlx_ptr, raycast, game);
 	mlx_hook(game->mlx_data->win_ptr, 17, 0L, close_game_exit, game);
 	mlx_hook(game->mlx_data->win_ptr, 2, 1L << 0, key_hook, game);
+	mlx_hook(game->mlx_data->win_ptr, 6, 0, mouse_hook, game);
 	mlx_loop(game->mlx_data->mlx_ptr);
 // 	// --!game---
 // 	// --free_easy_map-

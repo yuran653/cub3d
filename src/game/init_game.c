@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
+/*   By: dlariono <dlariono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 16:10:28 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/16 14:50:31 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/20 19:08:20 by dlariono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ void	init_values(t_game *game)
 	game->values->half_fov = FOV / 2;
 	game->values->inc_angle = (double)FOV / (double)WIDTH;
 	game->values->precision = (double)PRECISION;
+	game->values->mouse_x = 0;
 }
 
 t_game	*init_game(t_map *map)

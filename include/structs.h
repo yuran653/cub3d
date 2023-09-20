@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
+/*   By: dlariono <dlariono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:02:26 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/16 06:16:14 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/20 19:08:02 by dlariono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef struct s_values
 	int		half_scr_width;
 	int		half_src_height;
 	int		half_fov;
+	int		mouse_x;
 	double	inc_angle;
 	double	precision;
 }	t_values;

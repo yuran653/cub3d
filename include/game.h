@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
+/*   By: dlariono <dlariono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 05:42:54 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/16 18:11:10 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/20 18:40:47 by dlariono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ float	degree_to_radians(float degree);
 
 // key_hook.c
 int		key_hook(int keycode, t_game *game);
+int		mouse_hook(int x, int y, t_game *game);
 
 #endif
