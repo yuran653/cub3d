@@ -3,19 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
+/*   By: dmitrylarionov <dmitrylarionov@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 14:42:07 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/22 16:13:24 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/22 17:46:52 by dmitrylario      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	put_line(t_game *game, int y1, int y2, int color)
+static void	put_line(t_game *game, int wall_top, int wall_bottom, int color)
 {
-	while (y1++ < y2)
-		pixel_put(game->mlx_data, game->line_num, y1, color);
+	// prev. version
+	// while (y1++ < y2)
+	// 	pixel_put(game->mlx_data, game->line_num, y1, color);
+	int temp_y;
+	int wall_size;
+	double k;
+
+	if (color)
+	{
+		while (wall_top++ < wall_bottom)
+			pixel_put(game->mlx_data, game->line_num, wall_top, color);
+	}
+	else
+	{
+		temp_y = 0;
+		wall_size = 0;
+		if (wall_top < 0)
+				wall_size = wall_bottom + abs(wall_top);
+			else
+				wall_size = wall_bottom - wall_top;
+		while (wall_top++ < wall_bottom)
+		{
+			temp_y++;
+			k = (double)temp_y/(double)wall_size;
+			pixel_put(game->mlx_data, game->line_num, wall_top, extract_texture_color(game, k));			
+		}
+	}
 }
 
 static void	draw_line(t_game *game)
@@ -26,7 +51,8 @@ static void	draw_line(t_game *game)
 	wall_top = game->values->half_src_height - game->wall_height;
 	wall_bottom = game->values->half_src_height + game->wall_height;
 	put_line(game, 0, wall_top, game->map->hex_ceilling);
-	put_line(game, wall_top, wall_bottom, define_texture_side(game));
+	put_line(game, wall_top, wall_bottom, 0);
+	// put_line(game, wall_top, wall_bottom, define_texture_side(game));
 	put_line(game, wall_bottom, HEIGHT, game->map->hex_floor);
 }
 
@@ -68,6 +94,8 @@ int	raycast(t_game *game)
 		define_wall_position(game);
 		game->distance = sqrt(pow(game->map->player_x - game->ray_x, 2)
 				+ pow(game->map->player_y - game->ray_y, 2));
+		// fish eye fix 
+		// game->distance = game->distance * cos(degree_to_radians(game->ray_angle - game->map->player_orient));
 		game->wall_height = floor(game->values->half_src_height
 				/ game->distance);
 		draw_line(game);

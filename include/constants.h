@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   constants.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
+/*   By: dmitrylarionov <dmitrylarionov@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 21:42:47 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/22 15:57:13 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/22 17:48:21 by dmitrylario      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
