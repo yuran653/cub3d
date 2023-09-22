@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 14:42:07 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/17 16:31:05 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/22 15:05:10 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	draw_line(t_game *game)
 	wall_top = game->values->half_src_height - game->wall_height;
 	wall_bottom = game->values->half_src_height + game->wall_height;
 	put_line(game, 0, wall_top, game->map->hex_ceilling);
-	put_line(game, wall_top, wall_bottom, extract_texture_color(game));
+	put_line(game, wall_top, wall_bottom, define_texture_side(game));
 	put_line(game, wall_bottom, HEIGHT, game->map->hex_floor);
 }
 
@@ -51,6 +51,8 @@ static void	define_wall_position(t_game *game)
 			|| game->map->map_array[game->y][game->x] == NEW_LINE_SIGN
 			|| game->map->map_array[game->y][game->x] == END_LINE_SIGN)
 			break ;
+		game->prev_x = game->x;
+		game->prev_y = game->y;
 	}
 }
 

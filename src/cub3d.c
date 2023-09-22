@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlariono <dlariono@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:17:22 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/20 18:40:15 by dlariono         ###   ########.fr       */
+/*   Updated: 2023/09/22 15:10:45 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	main(int argc, char **argv)
 
 // 	// ---easy_map---
 	argc = 2;
-	// argv[1] = ft_strdup("maps/for_color.cub");
-	argv[1] = ft_strdup("maps/subject_map.cub");
+	argv[1] = ft_strdup("maps/for_color.cub");
+	// argv[1] = ft_strdup("maps/subject_map.cub");
 // 	// --!easy_map---
 // 	// ---parser---
 	map = parse(argc, argv);

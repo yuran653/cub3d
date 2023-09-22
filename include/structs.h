@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlariono <dlariono@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:02:26 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/20 19:08:02 by dlariono         ###   ########.fr       */
+/*   Updated: 2023/09/22 15:01:26 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ typedef struct s_game // теперь все в этой структуре
 	int			line_num; // норминет требует только маленькие буквы в названиях переменных
 	int			x;
 	int			y;
+	int			prev_x;
+	int			prev_y;
 	double		ray_x;
 	double		ray_y;
 	double		ray_cos;

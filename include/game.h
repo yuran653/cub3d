@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlariono <dlariono@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 05:42:54 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/20 18:40:47 by dlariono         ###   ########.fr       */
+/*   Updated: 2023/09/22 15:04:52 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ int		raycast(t_game *game);
 
 // extract_texture_color.c
 int	extract_texture_color(t_game *game);
+
+// define_texture_side.c
+int	define_texture_side(t_game *game);
 
 // draw_utils.c
 void	pixel_put(t_mlx *mlx_data, int x, int y, int color);
