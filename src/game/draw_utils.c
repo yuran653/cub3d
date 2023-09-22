@@ -6,11 +6,19 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 19:03:45 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/15 20:07:27 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/22 15:49:33 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int	is_wall(t_game *game, int x, int y)
+{
+	return (game->map->map_array[y][x] == M_WALL
+		|| game->map->map_array[y][x] == SPACE_SIGN
+		|| game->map->map_array[y][x] == NEW_LINE_SIGN
+		|| game->map->map_array[y][x] == END_LINE_SIGN);
+}
 
 float	degree_to_radians(float degree)
 {

@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 21:42:47 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/16 07:08:53 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/22 15:57:13 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # define FOV 66
 # define PRECISION 128
 # define TURN_SPEED 32
+# define STEP_SIZE 0.2
 
 # define SPACE_SIGN 32
 # define DELIMITER 44
