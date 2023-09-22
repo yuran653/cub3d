@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmitrylarionov <dmitrylarionov@student.    +#+  +:+       +#+        */
+/*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 14:42:07 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/22 17:53:48 by dmitrylario      ###   ########.fr       */
+/*   Updated: 2023/09/22 18:17:00 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	put_line(t_game *game, int wall_top, int wall_bottom, int color)
 		{
 			temp_y++;
 			k = (double)temp_y/(double)wall_size;
-			pixel_put(game->mlx_data, game->line_num, wall_top, extract_texture_color(game, k));			
+			pixel_put(game->mlx_data, game->line_num, wall_top, extract_texture_color(game, k, define_texture_side(game)));			
 		}
 	}
 }
