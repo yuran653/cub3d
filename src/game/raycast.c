@@ -6,7 +6,7 @@
 /*   By: dmitrylarionov <dmitrylarionov@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 14:42:07 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/22 17:46:52 by dmitrylario      ###   ########.fr       */
+/*   Updated: 2023/09/22 17:53:48 by dmitrylario      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int	raycast(t_game *game)
 		game->distance = sqrt(pow(game->map->player_x - game->ray_x, 2)
 				+ pow(game->map->player_y - game->ray_y, 2));
 		// fish eye fix 
-		// game->distance = game->distance * cos(degree_to_radians(game->ray_angle - game->map->player_orient));
+		game->distance = game->distance * cos(degree_to_radians(game->ray_angle - game->map->player_orient));
 		game->wall_height = floor(game->values->half_src_height
 				/ game->distance);
 		draw_line(game);
