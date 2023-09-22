@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 19:03:45 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/22 15:49:33 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/22 16:09:47 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	pixel_put(t_mlx *mlx_data, int x, int y, int color)
 
 	if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)
 		return ;
-	dst = mlx_data->addr + (y * mlx_data->line_length + x * (mlx_data->bits_per_pixel / 8));
+	dst = mlx_data->addr
+		+ (y * mlx_data->line_length + x * (mlx_data->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }

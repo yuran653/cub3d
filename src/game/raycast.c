@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 14:42:07 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/22 15:49:08 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/22 16:13:24 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,7 @@ static void	define_wall_position(t_game *game)
 		else if (game->y >= game->map->height)
 			game->y = game->map->height - 1;
 		if (is_wall(game, game->x, game->y))
-			break ;		
-		// if (game->map->map_array[game->y][game->x] == M_WALL
-		// 	|| game->map->map_array[game->y][game->x] == SPACE_SIGN
-		// 	|| game->map->map_array[game->y][game->x] == NEW_LINE_SIGN
-		// 	|| game->map->map_array[game->y][game->x] == END_LINE_SIGN)
-		// 	break ;
+			break ;
 		game->prev_x = game->x;
 		game->prev_y = game->y;
 	}
