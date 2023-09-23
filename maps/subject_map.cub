@@ -1,9 +1,9 @@
-NO    ./texture/north.xpm
-        SO ./texture/south.xpm
+NO    ./texture/north_.xpm
+        SO ./texture/south_.xpm
         
         C 204    ,    102, 0    
-WE      ./texture/west.xpm
- EA ./texture/east.xpm
+WE      ./texture/west_.xpm
+ EA ./texture/east_.xpm
 
 F         0 ,128,255     
 
