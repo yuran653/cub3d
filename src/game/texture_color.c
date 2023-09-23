@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 15:18:50 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/23 21:28:18 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/23 22:48:23 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,30 +39,27 @@ int	define_texture_side(t_game *game)
 	return (-1);
 }
 
-int	extract_texture_color(t_game *game, double y_pos_fixed, int texture)
+int	extract_texture_color(t_game *game, double y_pos_fixed, int side)
 {
 	int x_pos;
-	int img_pixel;
 	int	img_pxl_idx;
 	int	*img_pxl_ptr;
 
-	if (texture == -1)
+	if (side == -1)
 		return (0X0);
-	if (texture == 0 || texture == 1)
+	if (side == 0 || side == 1)
 		x_pos = (int)((game->ray_x - floor(game->ray_x))
-			* (double)game->map->texture[texture].width
-			- (double)game->map->texture[texture].width / 2);
+			* (double)game->map->texture[side].width
+			- (double)game->map->texture[side].width / 2);
 	else
 		x_pos = (int)((game->ray_y - floor(game->ray_y))
-			* (double)game->map->texture[texture].width
-			- (double)game->map->texture[texture].width / 2);
-	y_pos_fixed = (double)game->map->texture[texture].width * y_pos_fixed;
-	img_pxl_ptr = (int *)game->map->texture[texture].addr;
-	img_pxl_idx = (int)y_pos_fixed * game->map->texture[texture].width + x_pos;
-	// if (img_pxl_idx > game->map->texture[texture].width * game->map->texture[texture].width)
-	// 	printf("img_pxl_idx = [%d]\n", img_pxl_idx);
- 	img_pixel = img_pxl_ptr[img_pxl_idx];
-	// img_pixel = ((int *)game->map->texture[texture].addr)
-	// 	[(int)y_pos_fixed * game->map->texture[texture].width + x_pos];
-	return (img_pixel);
+			* (double)game->map->texture[side].width
+			- (double)game->map->texture[side].width / 2);
+	y_pos_fixed = (double)game->map->texture[side].width * y_pos_fixed;
+	img_pxl_ptr = (int *)game->map->texture[side].addr;
+	img_pxl_idx = (int)y_pos_fixed * game->map->texture[side].width + x_pos;
+	if (img_pxl_idx >= 0 && img_pxl_idx < game->map->texture[side].width
+		* game->map->texture[side].width)
+		return (img_pxl_ptr[img_pxl_idx]);
+	return (-1);
 }
