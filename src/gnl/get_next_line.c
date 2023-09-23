@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 01:48:39 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/30 16:51:40 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/23 19:58:21 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,31 +55,62 @@ char	*get_full_line(int fd, char *line, char *buff)
 	return (line);
 }
 
+static char	*free_line_return_null(char *line)
+{
+	free(line);
+	return (NULL);
+}
+
 char	*get_next_line(int fd)
 {
-	static char	buff[BUFFER_SIZE];
+	static char	buff[BUFFER_SIZE + 1];
 	char		*line;
 
 	line = (char *)malloc(sizeof(char) * 1);
 	if (!line)
 		return (NULL);
+	buff[BUFFER_SIZE] = '\0';
 	line[0] = '\0';
 	if (BUFFER_SIZE < 0 || read(fd, buff, 0) < 0)
-	{
-		free(line);
-		return (NULL);
-	}
+		return (free_line_return_null(line));
 	line = ft_strjoin_gnl(line, buff);
 	if (!ft_strlen_gnl(line))
 	{
 		if (read(fd, buff, BUFFER_SIZE) == 0)
-		{
-			free(line);
-			return (NULL);
-		}
+			return (free_line_return_null(line));
 		line = ft_strjoin_gnl(line, buff);
 	}
 	line = get_full_line(fd, line, buff);
 	line = get_end_line(line, buff);
 	return (line);
 }
+
+// char	*get_next_line(int fd)
+// {
+// 	static char	buff[BUFFER_SIZE + 1];
+// 	char		*line;
+
+// 	line = (char *)malloc(sizeof(char) * 1);
+// 	if (!line)
+// 		return (NULL);
+// 	buff[BUFFER_SIZE] = '\0';
+// 	line[0] = '\0';
+// 	if (BUFFER_SIZE < 0 || read(fd, buff, 0) < 0)
+// 	{
+// 		free(line);
+// 		return (NULL);
+// 	}
+// 	line = ft_strjoin_gnl(line, buff);
+// 	if (!ft_strlen_gnl(line))
+// 	{
+// 		if (read(fd, buff, BUFFER_SIZE) == 0)
+// 		{
+// 			free(line);
+// 			return (NULL);
+// 		}
+// 		line = ft_strjoin_gnl(line, buff);
+// 	}
+// 	line = get_full_line(fd, line, buff);
+// 	line = get_end_line(line, buff);
+// 	return (line);
+// }

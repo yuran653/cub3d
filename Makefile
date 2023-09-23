@@ -6,14 +6,14 @@
 #    By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 19:29:24 by jgoldste          #+#    #+#              #
-#    Updated: 2023/09/23 17:05:53 by jgoldste         ###   ########.fr        #
+#    Updated: 2023/09/23 21:28:33 by jgoldste         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	cub3d
 
 CC				=	gcc
-CFLAGS			=	-Wall -Werror -Wextra -g -fsanitize=address
+CFLAGS			=	-Wall -Werror -Wextra -g# -fsanitize=address
 LIB_FLAGS		=	-lmlx -lm -lft
 FRAMEWORK_FLAGS	=	-framework OpenGL -framework AppKit -framework Cocoa
 LIBRARIES 		=	$(LIB_FLAGS) $(FRAMEWORK_FLAGS) -L$(LIBFT_DIR) -L$(MINILIBX_DIR)

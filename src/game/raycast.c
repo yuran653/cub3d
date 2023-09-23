@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 14:42:07 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/23 02:35:43 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/23 21:29:03 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static void	put_texture_line(t_game *game, int wall_top, int wall_bottom)
 {
+	int color;
+	int	texture;
 	int temp_y;
 	int wall_size;
 	double y_pos_fixed;
@@ -28,9 +30,14 @@ static void	put_texture_line(t_game *game, int wall_top, int wall_bottom)
 	{
 		temp_y++;
 		y_pos_fixed = (double)temp_y/(double)wall_size;
-		pixel_put(game->mlx_data, game->line_num, wall_top,
-			extract_texture_color(game, y_pos_fixed,
-			define_texture_side(game)));
+		texture = define_texture_side(game);
+		color = extract_texture_color(game, y_pos_fixed, texture);
+		// if (color < game->map->texture[texture].width
+		// 	* game->map->texture[texture].height)
+			pixel_put(game->mlx_data, game->line_num, wall_top, color);
+		// pixel_put(game->mlx_data, game->line_num, wall_top,
+		// 	extract_texture_color(game, y_pos_fixed,
+		// 	define_texture_side(game)));
 	}
 }
 
