@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
+/*   By: dlariono <dlariono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 14:42:07 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/09/23 22:47:16 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/09/24 11:12:25 by dlariono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,11 @@ static void	put_texture_line(t_game *game, int wall_top, int wall_bottom)
 
 static void	put_line(t_game *game, int wall_top, int wall_bottom, int color)
 {
-	while (wall_top++ < wall_bottom)
+	while (wall_top < wall_bottom)
+	{
 		pixel_put(game->mlx_data, game->line_num, wall_top, color);
+		wall_top++;
+	}
 }
 
 static void	draw_line(t_game *game)
